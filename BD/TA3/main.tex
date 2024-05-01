@@ -1,0 +1,79 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage[document]{ragged2e}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\renewcommand{\shorthandsspanish}{}
+\usepackage{xurl}
+
+\usepackage{listings}
+
+\begin{document}
+
+\begin{titlepage}
+	\begin{tikzpicture}[overlay, remember picture]
+		\path (current page.north east) ++(-0.3,-1.5) node[below left] {\includegraphics[width=0.4\textwidth]{/home/saikkopat/Documents/LOGOS IPN/EscudoESCOM}};
+	\end{tikzpicture}
+	\begin{tikzpicture}[overlay, remember picture]
+		\path (current page.north west) ++(1.5,-1) node[below right] {\includegraphics[width=0.23\textwidth]{/home/saikkopat/Documents/LOGOS IPN/logo}};
+	\end{tikzpicture}
+	\begin{center}
+		\vspace{-3cm}
+		{\LARGE Instituto Politécnico Nacional\par}
+		{\Large Escuela Superior de Cómputo\par}
+		\vspace{7cm}
+		{\scshape\Huge Tarea A3\par}
+		{\itshape\Large Usuarios de la Base de Datos\par}
+		\vfill
+		{\Large Alumno: González Cárdenas Ángel Aquilez\par}
+		\vspace{1cm}
+		{\Large Boleta: 2016630152\par}
+		\vspace{1cm}
+		{\Large Grupo: 3CV1\par}
+		\vspace{1cm}
+		{\Large Profesor: Blanco Almazán Iván Eduardo\par}
+		\vfill
+	\end{center}
+\end{titlepage} 
+
+\newpage
+
+\textbf{\Large Usuarios de la base de datos}\\
+\vspace{0.5cm}
+
+Según \emph{Silberschatz, Korth y Sudarshan}, las personas que interactúan con una base de datos pueden dividirse entre \emph{usuarios} y \emph{administradores}.\\
+Cada usuario de la base de datos interactua de manera diferente dependiendo de los permisos y perfiles asignados, cambiando la forma de visualizar e interactuar con los datos almacenados. Se categorizan de la siguiente forma:\\
+
+\begin{itemize}
+
+	\item\emph{Usuarios no sofisticados}, que interactuan con la base de datos a través de interfaces, como apliaciones web o moviles, dependiendo del tipo de información que requieran. Estos usuarios no necesitan acceso a la base de datos. 
+	
+	\item\emph{Programadores de aplicaciones}, quienes desarrollan programas y pueden escoger diferentes herramientas e interfaces para interactuar con la base de datos a fin de crear productos que los usuarios no sofisticados utilicen.
+	
+	\item\emph{Usuarios sofisticados}, quienes interactuan con la base de datos a través de SQL o con herramientas de análisis de información.
+
+\end{itemize}
+
+Por otro lado, los administradores de una base de datos (o DBA) tienen control centralizado de los datos y los programas que interactuán con ellos. Entre sus principales funciones se encuentran las de:\\
+
+\begin{itemize}
+
+	\item Crear y definir los datos de la base,
+	\item definir los perfiles de acceso y alcances de los usuarios anteriores,
+	\item actualizar y modificar la base de datos según aparezcan nuevos requerimientos, 
+	\item dar mantenimiento a la base de datos, monitorear los procesos que se esten ejecutando, crear y actualizar métodos de respaldo y asegurarse de la capacidad de almacenamiento de los datos.
+
+\end{itemize}
+
+\newpage
+
+\textbf{Bibliografía}
+
+\begin{enumerate}
+	\item Silberschatz, A., Korth, H., \& Sudarshan, S. (2019) Database System Concepts (7a ed.). McGraw-Hill.
+\end{enumerate}
+
+\end{document}

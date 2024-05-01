@@ -1,0 +1,101 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage[document]{ragged2e}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla]{babel}
+\renewcommand{\shorthandsspanish}{}
+\usepackage{xurl}
+\usepackage{lipsum}
+\usepackage{mwe}
+\usepackage{multicol}
+\usepackage{siunitx}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{tabularray}
+\usepackage{schemata}
+
+\begin{document}
+
+\begin{titlepage}
+	\begin{tikzpicture}[overlay, remember picture]
+		\path (current page.north east) ++(-0.3,-1.8) node[below left] {\includegraphics[width=0.35\textwidth]{/home/saikkopat/Documents/LOGOS IPN/EscudoESCOM}};
+	\end{tikzpicture}
+	\begin{tikzpicture}[overlay, remember picture]
+		\path (current page.north west) ++(1.5,-1) node[below right] {\includegraphics[width=0.2\textwidth]{/home/saikkopat/Documents/LOGOS IPN/logo}};
+	\end{tikzpicture}
+	\begin{center}
+		\vspace{-1.5cm}
+		{\LARGE Instituto Politécnico Nacional\par}
+		\vspace{.5cm}
+		{\LARGE Escuela Superior de Cómputo\par}
+		\vspace{2.5cm}
+		{\large Unidad de aprendizaje:}\\{\Large Finanzas empresariales\par}
+		\vspace{5cm}
+		{\scshape\Huge Actividad 1:\par}
+		{\itshape\Large ¿Qué son las finanzas?\par}
+		\vfill
+		{\Large Integrantes:\par}
+		\vspace{0.7cm}
+		{\Large Gómez Tovar Yoshua Oziel\par}
+		{\Large Boleta: 2023630391\par}
+		\vspace{0.5cm}
+		{\Large González Cárdenas Ángel Aquilez\par}
+		{\Large Boleta: 2016630152\par}
+		\vspace{0.5cm}
+		{\Large Zarco Sosa Kevin\par}
+		{\Large Boleta: 2023630735\par}
+		\vspace{1cm}
+		{\Large Grupo: 3CV4\par}
+		\vspace{1cm}
+		{\Large Profesor: Estrada Elizalde Serafín\par}
+		\vfill
+	\end{center}
+\end{titlepage} 
+
+\newpage
+
+\textbf{\Large Ejercicio: ¿Qué son las \emph{finanzas}?}\\
+\vspace{0.5cm}
+
+Redacte una definición de \emph{finanzas} con base en la investigación previa y realice un cuadro sinóptico sobre las áreas de estudio dentro de las finanzas:\par
+
+\begin{quotation}
+	Las \emph{finanzas} son un área de la economía que se encarga del estudio del flujo monetario de una entidad, ya sea corporación o persona, de manera sistemática, llevando a cabo la gestión de recursos de manera optimizada. De esta manera, las finanzas son el elemento fundamental que gestiona acciones como el manejo de ingresos, egresos, ahorros e inversiones.
+\end{quotation}
+
+\vspace{3cm}
+
+\begin{figure}[h!]
+	\centering
+	
+	\schema
+		{\schemabox{\huge Finanzas}}
+		{
+			\schema{\schemabox{\LARGE Corporativas}}
+				{\schemabox{\Large Contabilidad\\\Large Bancaria\\\Large Financiamiento}}
+			\vspace{3cm}
+			\schema{\schemabox{\LARGE Mercados Financieros}}
+				{\schemabox{\Large Inversión\\ \Large Riesgos\\\Large Divisas}}
+			\vspace{3cm}
+			\schema
+				{\schemabox{\LARGE Personales}}
+				{
+					\schema{\schemabox{\Large Servicios financieros}}
+						{
+							{\schemabox{\large Créditos\\\large Ahorro\\\large Pensiones}}
+						}
+				}
+		}
+	
+\end{figure}
+
+
+\end{document}

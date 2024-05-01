@@ -1,0 +1,229 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage[document]{ragged2e}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla]{babel}
+\renewcommand{\shorthandsspanish}{}
+\usepackage{xurl}
+\usepackage{lipsum}
+\usepackage{mwe}
+\usepackage{multicol}
+\usepackage{siunitx}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{tabularray}
+
+\begin{document}
+
+\begin{titlepage}
+	\begin{tikzpicture}[overlay, remember picture]
+		\path (current page.north east) ++(-0.3,-1.5) node[below left] {\includegraphics[width=0.35\textwidth]{/home/saikkopat/Documents/LOGOS IPN/EscudoESCOM}};
+	\end{tikzpicture}
+	\begin{tikzpicture}[overlay, remember picture]
+		\path (current page.north west) ++(1.5,-1) node[below right] {\includegraphics[width=0.2\textwidth]{/home/saikkopat/Documents/LOGOS IPN/logo}};
+	\end{tikzpicture}
+	\begin{center}
+		\vspace{-1.5cm}
+		{\LARGE Instituto Politécnico Nacional\par}
+		\vspace{.5cm}
+		{\LARGE Escuela Superior de Cómputo\par}
+		\vspace{2.5cm}
+		{\large Unidad de aprendizaje:}\\{\Large Fundamentos económicos\par}
+		\vspace{7cm}
+		{\scshape\Huge Actividad 2:\par}
+		{\itshape\Large Producción con un factor variable\par}
+		\vfill
+		{\Large Alumno: González Cárdenas Ángel Aquilez\par}
+		\vspace{1cm}
+		{\Large Boleta: 2016630152\par}
+		\vspace{1cm}
+		{\Large Grupo: 2CV2\par}
+		\vspace{1cm}
+		{\Large Profesora: Villegas Navarrete Sonia\par}
+		\vfill
+	\end{center}
+\end{titlepage} 
+
+\newpage
+
+\textbf{\Large Ejercicio:}\\
+\vspace{0.5cm}
+
+Cuando la tierra es fija, pero el trabajo es variable, la empresa solo puede producir más incrementado su cantidad de trabajo.\par
+
+\vspace{0.5cm}
+
+De la Tabla 1, las tres primeras columnas muestras una función hipotética de producción a corto plazo
+para trigo. Tenemos que decidir ¿cuánto trabajo vamos a contratar y cuánto frijol vamos a
+producir? \\
+
+\vspace{0.5cm}
+
+Con base en la Tabla 1: \\
+
+\begin{enumerate}[label=\arabic*)]
+	\item Determinar el \emph{PMe} y el \emph{PMa} del trabajo.
+	\item Trace las curvas del \emph{PT}, \emph{PMe} y \emph{PMa} de trabajo.
+	\item Interprete las curvas considerando sus tres etapas.
+\end{enumerate}
+
+
+\bgroup
+\def\arraystretch{1.5}%
+\begin{table}[ht!]
+\setlength\tabcolsep{3pt}
+\begin{center}
+\begin{tblr}{|c c c c c|}
+\hline
+		Tierra & Trabajo & Producto Total & Producto Medio & Producto Marginal\\
+		(T)&(L)&(PT)&(PMe)&(PMa) \\ \hline
+		2 & 0 & 0 & - & - \\ 
+		2 & 1 & 4 & 4 &  4 \\ 
+		2 & 2 & 10 & 5 & 6 \\ 
+		2 & 3 & 18 & 6 & 8 \\ 
+		2 & 4 & 24 & 6 & 6 \\ 
+		2 & 5 & 28 & 5.6 & 4 \\ 
+		2 & 6 & 30 & 5 & 2 \\ 
+		2 & 7 & 30 & 4.2 & 0 \\ 
+		2 & 8 & 28 & 3.5 & -2 \\ 
+		2 & 9 & 24 & 2.6 & -4 \\
+\hline
+\end{tblr}
+\label{table:1}
+\caption{Función hipotética de producción a corto plazo para trigo}
+\end{center}
+\end{table}
+
+\begin{enumerate}
+
+\item
+De la Tabla 1 se obtiene el \emph{Producto Medio (PMe)} de la division entre el \emph{Producto Total (PT)} y la cantidad de \emph{Trabajo (L)}:
+
+\[
+	PMe = \frac{PT}{L}
+\]
+
+Y al aplicar la fórmula sobre los valores de la Tabla 1 tenemos que:
+
+\begin{align*}
+	PMe_1 &= \frac{4}{1} = 4 \\
+	PMe_2 &= \frac{10}{2} = 5 \\
+	PMe_3 &= \frac{18}{3} = 6 \\
+	PMe_4 &= \frac{24}{4} = 6 \\
+	PMe_5 &= \frac{28}{5} = 5.6 \\
+	PMe_6 &= \frac{30}{6} = 5 \\
+	PMe_7 &= \frac{30}{7} = 4.2 \\
+	PMe_8 &= \frac{28}{8} = 3.5 \\
+	PMe_9 &= \frac{24}{9} = 2.6 \\
+\end{align*}
+
+Como no es posible dividir la cantidad de producto total cuando \emph{(L)} cuando es igual a 0, se omite algún resultado por la indeterminación. \\
+Luego, para obtener el \emph{Producto Marginal (PMa)} de la fórmula: 
+
+\[
+	PMa = \frac{\Delta PT}{\Delta L} = \frac{PT_{L2} - PT_{L1}}{L_2-L_1}
+\]
+
+De donde: \\
+
+\begin{align*}
+	PMa_{0-1} &= \frac{4 - 0}{1 - 0} = 4 \\
+	PMa_{1-2} &= \frac{10 - 4}{2 - 1} = 6 \\
+	PMa_{2-3} &= \frac{18 - 10}{3 - 2} = 8 \\
+	PMa_{3-4} &= \frac{24 - 18}{4 - 3} = 6 \\
+	PMa_{4-5} &= \frac{28 - 24}{5 - 4} = 4 \\
+	PMa_{5-6} &= \frac{30 - 28}{6 - 5} = 2 \\
+	PMa_{6-7} &= \frac{30 - 30}{7 - 6} = 0 \\
+	PMa_{7-8} &= \frac{28 - 30}{8 - 7} = -2 \\
+	PMa_{8-9} &= \frac{24 - 28}{9 - 8} = -4 \\
+\end{align*}
+
+
+\item
+En la Figura 1 se aprecian los datos obtenidos de forma gráfica: 
+
+\begin{figure}[h!]
+	\centering
+	
+\begin{tikzpicture}
+
+\begin{axis} [
+	legend style={legend pos=outer north east},
+	width=12cm,	
+	grid=both,
+	ymin=-5,
+	xmin=0, xmax=10,
+	xtick={1,...,10},
+	title=Producción con un factor variable,
+	ylabel=Producto Total (PT) Producto Medio (PMe) y Producto Marginal (PMa),
+	xlabel=Trabajo (L),
+]
+
+\addplot [color=orange] coordinates {
+			(0,0)
+			(1,4)
+			(2,10)
+			(3,18)
+			(4,24)
+			(5,28)
+			(6,30)
+			(7,30)
+			(8,28)
+			(9,24)
+
+};
+\addlegendentry{PT}
+
+\addplot[color=red]
+coordinates {
+	(1,4)
+	(2,5)
+	(3,6)
+	(4,6)
+	(5,5.6)
+	(6,5)
+	(7,4.2)
+	(8,3.5)
+	(9,2.6)
+};
+\addlegendentry{PMe}
+
+\addplot [color=green] coordinates {
+			(.5,4)
+			(1.5,6)
+			(2.5,8)
+			(3.5,6)
+			(4.5,4)
+			(5.5,2)
+			(6.5,0)
+			(7.5,-2)
+			(8.5,-4)
+
+};
+\addlegendentry{PMa}
+
+\draw[dashed] ({axis cs:3.5,0}|-{rel axis cs:0,0}) -- ({axis cs:3.5,0}|-{rel axis cs:0,1});
+\draw[dashed] ({axis cs:6.5,0}|-{rel axis cs:0,0}) -- ({axis cs:6.5,0}|-{rel axis cs:0,1});
+
+
+\end{axis}
+\end{tikzpicture}
+\caption{Etapas de la producción}
+\end{figure}
+
+\item Se concluye de la Tabla 1 y la Figura 1 que se alcanza el máximo en la producción con un trabajo de 5 a 7 y una producción de 28 a 30.
+
+\end{enumerate}
+
+\vspace{5cm}
+A continuación se anexa el ejercicio realizado en clase:
+
+\end{document}

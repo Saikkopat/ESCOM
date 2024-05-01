@@ -1,0 +1,81 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{er, positioning}
+\usepackage{float}
+\usepackage[document]{ragged2e}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\renewcommand{\shorthandsspanish}{}
+\usepackage{xurl}
+
+\usepackage{listings}
+
+\begin{document}
+
+\begin{titlepage}
+	\begin{tikzpicture}[overlay, remember picture]
+		\path (current page.north east) ++(-0.3,-1.5) node[below left] {\includegraphics[width=0.4\textwidth]{/home/saikkopat/Documents/LOGOS IPN/EscudoESCOM}};
+	\end{tikzpicture}
+	\begin{tikzpicture}[overlay, remember picture]
+		\path (current page.north west) ++(1.5,-1) node[below right] {\includegraphics[width=0.23\textwidth]{/home/saikkopat/Documents/LOGOS IPN/logo}};
+	\end{tikzpicture}
+	\begin{center}
+		\vspace{-3cm}
+		{\LARGE Instituto Politécnico Nacional\par}
+		{\Large Escuela Superior de Cómputo\par}
+		\vspace{7cm}
+		{\scshape\Huge Tarea A7\par}
+		{\itshape\Large Modelo Entidad-Relación\par}
+		\vfill
+		{\Large Alumno: González Cárdenas Ángel Aquilez\par}
+		\vspace{1cm}
+		{\Large Boleta: 2016630152\par}
+		\vspace{1cm}
+		{\Large Grupo: 3CV1\par}
+		\vspace{1cm}
+		{\Large Profesor: Blanco Almazán Iván Eduardo\par}
+		\vfill
+	\end{center}
+\end{titlepage} 
+
+\newpage
+
+\textbf{\Large Modelo Entidad-Relación}\\
+\vspace{0.5cm}
+
+Durante Junio de 1973 al mes de Agosto de 1974, y durante su estancia en \emph{Honeywell and Digital} como parte del proyecto \emph{"next-generation computer system"}, Peter Chen comenzó a desarrollar los conceptos que utilizaría para la creación del modelo entidad-relación descritos en (\textbf{CHEN, 1976}), a partir de las necesidades del proyecto que buscaba la creación de un sistema computacional basado en una arquitectura distribuida, entre las que destaca la necesidad de crear archivos y bases de datos compatibles entre si a pesar de encontrarse en diferentes nodos de la red del sistema.\\
+Así, un modelo entidad-relación que describa una base de datos utiliza tres elementos:\\
+\begin{itemize}
+\item\emph{entidades},
+\item\emph{relaciones}, y
+\item\emph{atributos}.
+\end{itemize}
+
+Una \textbf{entidad} modela un objeto o concepto del mundo real que exista independientemente de otro y sea único. Se utiliza un rectángulo para denotar una entidad. Cada entidad cuanta con \textbf{atributos} que describen características de las entidades.\\
+Las entidades se \emph{relacionan}, y cada \textbf{relación} describe la acción que permite a dos entidades relacionarse.
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[node distance=3em]
+	\node[entity] (node1) {Entidad 1}
+    child[grow=left,level distance=3cm] {node[attribute] {Atributo}};
+  \node[relationship] (rel1) [right = of node1] {Relacion} edge (node1);
+  \node[entity] (node2) [right = of rel1]	{Entidad 2}
+	  child[grow=right,level distance=3cm] {node[attribute] {Atributo}} edge (rel1);
+	\end{tikzpicture}
+	\caption{Ejemplo de un diagrama ER simple}
+	\label{fig:er1}
+\end{figure}
+
+\newpage
+
+\textbf{Bibliografía}
+
+\begin{enumerate}
+	\item Silberschatz, A., Korth, H., \& Sudarshan, S. (2019) Database System Concepts (7a ed.). McGraw-Hill.
+	\item What is data modeling? (s/f). IBM.com. Recuperado el 1 de marzo de 2023, de https://www.ibm.com/topics/data-modeling
+\end{enumerate}
+
+\end{document}

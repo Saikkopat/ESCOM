@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/onova/OneDrive%20-%20Instituto%20Politecnico%20Nacional/Documents/NetBeansProjects/ERModeltoRelationalModel/src/EntityRelationship/EAttribute.java</file>
+            <file>file:/C:/Users/onova/OneDrive%20-%20Instituto%20Politecnico%20Nacional/Documents/NetBeansProjects/ERModeltoRelationalModel/src/EntityRelationship/Entity.java</file>
+            <file>file:/C:/Users/onova/OneDrive%20-%20Instituto%20Politecnico%20Nacional/Documents/NetBeansProjects/ERModeltoRelationalModel/src/EntityRelationship/Relationship.java</file>
+            <file>file:/C:/Users/onova/OneDrive%20-%20Instituto%20Politecnico%20Nacional/Documents/NetBeansProjects/ERModeltoRelationalModel/src/Relational/RAttribute.java</file>
+            <file>file:/C:/Users/onova/OneDrive%20-%20Instituto%20Politecnico%20Nacional/Documents/NetBeansProjects/ERModeltoRelationalModel/src/Core/ERMtoRM.java</file>
+            <file>file:/C:/Users/onova/OneDrive%20-%20Instituto%20Politecnico%20Nacional/Documents/NetBeansProjects/ERModeltoRelationalModel/src/Relational/Relation.java</file>
+            <file>file:/C:/Users/onova/OneDrive%20-%20Instituto%20Politecnico%20Nacional/Documents/NetBeansProjects/ERModeltoRelationalModel/src/Relational/FunctDep.java</file>
+            <file>file:/C:/Users/onova/OneDrive%20-%20Instituto%20Politecnico%20Nacional/Documents/NetBeansProjects/ERModeltoRelationalModel/src/EntityRelationship/ERModel.java</file>
+            <file>file:/C:/Users/onova/OneDrive%20-%20Instituto%20Politecnico%20Nacional/Documents/NetBeansProjects/ERModeltoRelationalModel/src/Relational/RelModel.java</file>
+            <file>file:/C:/Users/onova/OneDrive%20-%20Instituto%20Politecnico%20Nacional/Documents/NetBeansProjects/ERModeltoRelationalModel/src/EntityRelationship/Participation.java</file>
+            <file>file:/C:/Users/onova/OneDrive%20-%20Instituto%20Politecnico%20Nacional/Documents/NetBeansProjects/ERModeltoRelationalModel/src/EntityRelationship/AttrType.java</file>
+            <file>file:/C:/Users/onova/OneDrive%20-%20Instituto%20Politecnico%20Nacional/Documents/NetBeansProjects/ERModeltoRelationalModel/src/EntityRelationship/Cardinality.java</file>
+            <file>file:/C:/Users/onova/OneDrive%20-%20Instituto%20Politecnico%20Nacional/Documents/NetBeansProjects/ERModeltoRelationalModel/src/EntityRelationship/EntityType.java</file>
+            <file>file:/C:/Users/onova/OneDrive%20-%20Instituto%20Politecnico%20Nacional/Documents/NetBeansProjects/ERModeltoRelationalModel/src/Conversion/Converter.java</file>
+            <file>file:/C:/Users/onova/OneDrive%20-%20Instituto%20Politecnico%20Nacional/Documents/NetBeansProjects/ERModeltoRelationalModel/src/Relational/ForeignKey.java</file>
+            <file>file:/C:/Users/onova/OneDrive%20-%20Instituto%20Politecnico%20Nacional/Documents/NetBeansProjects/ERModeltoRelationalModel/src/EntityRelationship/MultivaluedAttrTuple.java</file>
+        </group>
+    </open-files>
+</project-private>

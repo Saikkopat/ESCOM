@@ -1,0 +1,74 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage[document]{ragged2e}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\renewcommand{\shorthandsspanish}{}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\usepackage{xparse}
+\usepackage{dsfont}
+
+\graphicspath{ {/home/saikkopat/Documents/school/CAL/EX1/} }
+
+\NewDocumentCommand{\INTERVALINNARDS}{ m m }{
+    #1 {,} #2
+}
+\NewDocumentCommand{\interval}{ s m >{\SplitArgument{1}{,}}m m o }{
+    \IfBooleanTF{#1}{
+        \left#2 \INTERVALINNARDS #3 \right#4
+    }{
+        \IfValueTF{#5}{
+            #5{#2} \INTERVALINNARDS #3 #5{#4}
+        }{
+            #2 \INTERVALINNARDS #3 #4
+        }
+    }
+}
+
+\geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+
+\begin{document}
+
+\begin{center}
+\Huge{Corrección del segundo examen de Cálculo}\\
+\vspace{0.5cm}
+\Large{González Cárdenas Ángel Aquilez} \\
+\end{center}
+
+\vspace{0.5cm}
+
+2. Un embudo de volumen específico tiene la forma de un cono circuilar recto. Determine la razón de la altura al radio de la base de modo que se emplee la mínima cantidad de material en su construcción. \\ \vspace{0.5cm}
+
+Solución: Haciendo $V = \dfrac{\pi r^2 h}{3}$, donde $V$ es el volumen del cono, $r$ el radio de la base y $h$ la altura. Luego, haciendo $A$ el área de la superficie del cono, necesitamos encontrar la relación $\dfrac{h}{r}$ donde $A$ tenga un valor mínimo absoluto.\\
+
+Así, de 
+\[V = \frac{1}{3} \pi r^2 h\] despejando $h$
+\[h = 3V \pi^{-1} r^{-2}\] \\
+Por otro lado, para obtener el área de la superficie del cono tenemos
+\[ A = \pi r \sqrt{r^2 + h^2} = \sqrt{\pi^2 r^2(r^2 + h^2)} = \sqrt{\pi^2 r^4 + \pi^2 r^2 h^2}\] \\
+Y como $h^2 = 9V^2 \pi^{-2} r^{-4}$, luego
+\[A = [ \pi^2 r^4 + \pi^2 r^2 (9V \pi^{-2} r^{-4})]^\frac{1}{2} = (\pi^2 r^4 + 9V^2 r^{-2})^\frac{1}{2}, r \in \interval({0,\infty}) \] \\
+
+Haciendo
+
+\[\frac{d A}{d r} = \frac{1}{2} (\pi^2 r^4 + 9V^2 r^{-2})^{-\frac{1}{2}} (4\pi^2 r^3 - 18V^2 r^{-3}) = 2\pi^3 r^{-3}(\pi^2 r^4 + 9V^2 r^{-2})^{-\frac{1}{2}} (r^6 - \frac{9}{2} \pi^{-2} V^2)\] \\
+
+De $r^6 - \frac{9}{2} \pi^{-2} V^2$ hacemos a $r_0 = (\frac{3}{2} \pi^{-2} V^2)^{\frac{1}{6}}$, de modo que $\frac{d A}{d r} < 0$ si $r < r_0$ y $\frac{d A}{d r} > 0$ si $r > r_0$, por lo que $A$ tiene un \emph{valor mínimo absoluto} cuando $r = r_0$. \\
+
+Finalmente, de lo anterior tenemos que
+
+\[ \frac{h}{r} = (\frac{1}{r}) \frac{3V}{\pi r^2} = \frac{3V}{\pi r^3} = \frac{3V}{\pi (\frac{9}{2} \pi^{-2} V^2)^{\frac{1}{6} (3)}} = \frac{3V}{\pi \sqrt{\frac{9}{2} \pi^{-2} V^2}} = \frac{3V}{\pi(\frac{3 \sqrt{2}}{2} \pi^{-1} V )} = \frac{2}{\sqrt{2}} = \sqrt{2}\] 
+
+
+
+\end{document}

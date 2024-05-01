@@ -1,0 +1,88 @@
+
+#Ejercicio 10
+
+hora = 10000
+print( int(hora/3600), int((hora/3600 - int(hora/3600)) * 60), (hora/3600 - int(hora/3600)) * 60) - int((hora/3600 - int(hora/3600)) * 60)
+
+#Ejercicio 2
+
+a = [1,2,3,4,5,6]
+
+b = a[:2]
+c = a[1:4]
+d = a[3:]
+
+print(a, b, c, d)
+
+#Ejercicio 3
+
+x = []
+for item in range(0,10):
+    x.append(item)
+print(range(0,10))
+print(x)
+
+y = []
+for item in range(1,10):
+    y.append(item)
+print(range(1,10))
+print(y)
+
+z = []
+for item in range(1,10,2):
+    z.append(item)
+print(range(1,10,2))
+print(z)
+
+#Ejercicio 5
+
+mat = [[1,2,3], [4,5,6], [7,8,9]]
+print(mat[1][2])
+print(mat[0])
+
+#Ejercicio 6
+
+mat2 = [[4,1,5], [3,2,4], [9,0,1]]
+item = 0
+for item2 in range(0,3):
+    print(mat2[item2])
+
+#Ejercicio 7
+
+mundial={}
+mundial[12] = "Spain"
+mundial[11] = "Netherlands"
+mundial[10] = "Italy"
+mundial[8] = "Germany"
+mundial[6] = "France"
+mundial[5] = "Portugal"
+
+#Ejercicio 8
+
+for item in mundial:
+    print(item, mundial[item])
+
+for key, value in mundial.items():
+    if "Spain" == value:
+        print(key)
+
+for key, value in mundial.items():
+    if "Portugal" == value:
+        print(key)
+
+s = {12+3: "Spain"}
+mundial.update(s)
+s = {6+2: "France"}
+mundial.update(s)
+
+for key, value in mundial.items():
+    print(key, value)
+
+#Ejercicio 9
+
+inventario = {'manzanas': 430, 'bananas': 312, 'naranjas': 525, 'peras': 217}
+print(inventario)
+inventario['manzanas'] = inventario.get('manzanas', 0) + 20
+print(inventario)
+inventario['peras'] = inventario.get('peras', 0) -110
+print(inventario)

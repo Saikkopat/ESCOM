@@ -1,0 +1,254 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage[document]{ragged2e}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla]{babel}
+\renewcommand{\shorthandsspanish}{}
+\usepackage{xurl}
+\usepackage{lipsum}
+\usepackage{mwe}
+\usepackage{multicol}
+\usepackage{siunitx}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{tabularray}
+\usepackage{xparse}
+\usepackage{dsfont}
+
+
+\NewDocumentCommand{\INTERVALINNARDS}{ m m }{
+    #1 {,} #2
+}
+\NewDocumentCommand{\interval}{ s m >{\SplitArgument{1}{,}}m m o }{
+    \IfBooleanTF{#1}{
+        \left#2 \INTERVALINNARDS #3 \right#4
+    }{
+        \IfValueTF{#5}{
+            #5{#2} \INTERVALINNARDS #3 #5{#4}
+        }{
+            #2 \INTERVALINNARDS #3 #4
+        }
+    }
+}
+
+
+\begin{document}
+
+\begin{titlepage}
+	\begin{tikzpicture}[overlay, remember picture]
+		\path (current page.north east) ++(-0.3,-1.8) node[below left] {\includegraphics[width=0.35\textwidth]{/home/saikkopat/Documents/LOGOS IPN/EscudoESCOM}};
+	\end{tikzpicture}
+	\begin{tikzpicture}[overlay, remember picture]
+		\path (current page.north west) ++(1.5,-1) node[below right] {\includegraphics[width=0.2\textwidth]{/home/saikkopat/Documents/LOGOS IPN/logo}};
+	\end{tikzpicture}
+	\begin{center}
+		\vspace{-1.5cm}
+		{\LARGE Instituto Politécnico Nacional\par}
+		\vspace{.5cm}
+		{\LARGE Escuela Superior de Cómputo\par}
+		\vspace{2.5cm}
+		{\large Unidad de aprendizaje:}\\{\Large Cálculo\par}
+		\vspace{5cm}
+		{\scshape\Huge Tarea 1:\par}
+		{\itshape\Large Método de puntos críticos para desigualdades e inecuaciones\par}
+		\vfill
+		{\Large Alumno:\par}
+		\vspace{0.7cm}
+		{\Large González Cárdenas Ángel Aquilez\par}
+		\vspace{0.5cm}
+		{\Large Boleta: 2016630152\par}
+		\vspace{0.5cm}
+		{\Large Grupo: 1CV8\par}
+		\vspace{1cm}
+		{\Large Profesor: Jurado Jiménez Roberto\par}
+		\vfill
+	\end{center}
+\end{titlepage} 
+
+\newpage
+
+\begin{Large}
+	Método de puntos críticos para desigualdades e inecuaciones
+\end{Large}
+
+\vspace{.5cm}
+
+El método de \emph{puntos críticos} o \emph{gráfico} para resolver desigualdades e inecuaciones cuadráticas es un método algebraico que se utiliza para encontrar los puntos críticos de la desigualdad, que son las soluciones a la ecuación cuadrática relacionada.\\ Una vez que se han encontrado los puntos críticos, se utilizan para dividir la recta numérica en intervalos. Por encima de la recta numérica se muestra el signo de cada expresión cuadrática utilizando puntos de prueba de cada intervalo sustituido a la desigualdad original. Luego, se determinan los intervalos donde la desigualdad es correcta.\par
+
+\vspace{0.5cm}
+
+Ejemplo 1: resolver por el método gráfico la desigualdad $x2-5x+6 > 0$.\par
+
+\vspace{0.5cm}
+
+Primero, encontramos los puntos críticos resolviendo la ecuación cuadrática relacionada $x2-5x+6=0$. Factorizando, obtenemos $(x-2)(x-3)=0$, lo que nos da dos soluciones: $x=2$ y $x=3$. Estos son nuestros \emph{puntos críticos}.\\
+
+\vspace{0.5cm}
+
+Luego, utilizamos estos puntos críticos para dividir la recta numérica en tres intervalos: $\interval({-\infty,2})$, (2,3) y $\interval({3,\infty})$.\\
+
+\vspace{0.5cm}
+
+Elegimos un punto de prueba en cada intervalo y lo sustituimos en la desigualdad original para determinar el signo de la expresión cuadrática en ese intervalo.\par
+
+\vspace{0.5cm}
+
+Para el intervalo $\interval({-\infty,2})$, elegimos el punto de prueba $x=0$. Sustituyendo en la desigualdad original, obtenemos $02-5(0)+6>0$, lo que se simplifica a $6>0$. Esto es \emph{verdadero}, por lo que la desigualdad es verdadera para todos los valores de $x$ en el intervalo $\interval({-\infty,2})$.\\
+
+\vspace{0.5cm}
+
+Para el intervalo (2,3), elegimos el punto de prueba $x=2.5$. Sustituyendo en la desigualdad original, obtenemos $(2.5)2-5(2.5)+6>0$, lo que se simplifica a $-0.25>0$. Esto es \emph{falso}, por lo que la desigualdad es falsa para todos los valores de $x$ en el intervalo (2,3).\\
+
+\vspace{0.5cm}
+
+Para el intervalo $\interval({3,\infty})$, elegimos el punto de prueba $x=4$. Sustituyendo en la desigualdad original, obtenemos $42-5(4)+6>0$, lo que se simplifica a $6>0$. Esto es \emph{verdadero}, por lo que la desigualdad es verdadera para todos los valores de $x$ en el intervalo $\interval({3,\infty})$.\\
+
+\bgroup
+\def\arraystretch{1.5}%
+\begin{table}[ht!]
+\begin{center}
+\begin{tabular}{ c | c  c  c }
+		& $\interval({-\infty,2})$ & $\interval({2,3})$ & $\interval({3,\infty})$ \\ [0.5ex]
+	& $x=0$ & $x=2.5$ 	& $x=4$ \\ 	\hline
+	$x-2$ & - & + & + \\
+	$x-3$ & - & - & + \\
+	$(x-2)(x-3) > 0$ & + & - & + \\ 
+\end{tabular}
+\end{center}
+\end{table}
+
+Por lo tanto, la solución a la desigualdad cuadrática $x2-5x+6>0$ es el conjunto de todos los valores de $x$ en los intervalos donde la desigualdad es verdadera: $\interval({-\infty,2}) \cup \interval({3,\infty})$. \par
+
+\newpage
+
+Ejemplo 2: ¿Qué valor de $x$ corresponde la solución de la inecuación $\mid 2x + 5 \mid \leq \mid x-3 \mid$? \\
+
+Por la caracterización del valor absoluto tenemos que
+
+\[
+	\sqrt{(2x+5)^2} \leq \sqrt{(x-3)^2}
+\]
+Luego, elevando al cuadrado ambos miembros de la desigualdad
+
+\[
+	(2x+5)^2 \leq (x-3)^2
+\]
+
+Desarrollando los binomios tenemos
+
+\vspace{-0.5cm}
+
+\begin{align*}
+	4x^2 +20x +25 \leq x^2 -6x +9 \\
+	3x^2 +26x +16 \leq 0 \\
+	3x^2 +24x +2x +16 \leq 0 \\
+	3x(x + 8) + 2(x + 8) \leq 0 \\
+	(3x + 2)(x + 8) \leq 0
+\end{align*}
+
+De donde, obteniendo los puntos críticos tenemos
+
+\begin{align*}
+	3x+2 = 0 \implies x = -\frac{2}{3} \\
+	x+8 = 0 \implies x = -8
+\end{align*}
+
+Luego, con los intervalos
+
+\[  \interval({-\infty,-8}] \text{ , } \interval[{-8, -\frac{2}{3}}] \text{ , } \interval[{-\frac{2}{3},\infty}) \]
+
+
+\bgroup
+\def\arraystretch{1.5}%
+\begin{table}[ht!]
+\begin{center}
+\begin{tabular}{ c | c  c  c }
+		& $\interval({-\infty,-8}]$ & $\interval[{-8, -\frac{2}{3}}]$ & $\interval[{-\frac{2}{3},\infty})$ \\ [0.5ex]
+	& $x=-9$ & $x=-4$ 	& $x=0$ \\ 	\hline
+	$x+8$ & - & + & + \\
+	$3x+2$ & - & - & + \\
+	$(x+8)(3x+2)\leq 0$ & + & - & + \\ 
+\end{tabular}
+\end{center}
+\end{table}
+
+
+Por lo tanto, la solución para la desigualdad $\mid 2x + 5 \mid \leq \mid x-3 \mid$ es el intervalo \\
+
+\[ \interval[{-8,-\frac{2}{3}}] = \{ x \in \mathds{R} \mid -8 \leq x \leq -\frac{2}{3} \} \]
+
+
+
+
+
+\newpage
+
+Ejemplo 3: Resuelva la siguiente desigualdad utilizando el método gráfico:
+
+\[
+	\frac{2x^2 -3x -20}{x+3} < 0
+\]
+
+\vspace{1cm}
+
+Primero, utilizando la ecuación cuadrática con $A = 2$, $B = -3$, y $C= -20$ tenemos que
+
+\[
+	x_{1,2} = \dfrac{3 \pm \sqrt{9 + (4)(2)(20)}}{4}
+\]
+
+Luego, tenemos que para los puntos críticos con:
+
+\[
+	x_1 = \frac{3 + 13}{4} = \frac{16}{4} = 4
+\]
+\[
+	x_2 = \frac{3 - 13}{4} = \frac{-10}{4} = \frac{-5}{2}
+\]
+
+De modo que 
+
+\begin{align*}
+	x = 4 \\
+	x = \dfrac{-5}{2}\\
+	x+3 = 0 \implies x = -3
+\end{align*}
+
+Luego, con los intervalos
+
+\[  \interval({-\infty,-3}) \text{ , } \interval({-3, -\frac{5}{2}}) \text{ , } \interval[{-\frac{5}{2},4}) \text{ , } \interval[{4, \infty}) \]
+
+\vspace{0.5cm}
+
+Por lo cual, de manera gráfica se observa lo siguiente:
+
+\bgroup
+\def\arraystretch{1.5}%
+\begin{table}[ht!]
+\begin{center}
+\begin{tabular}{ c | c  c  c c}
+		& $\interval({-\infty,-3}) $ & $ \interval({-3, -\frac{5}{2}}) $ & $ \interval[{-\frac{5}{2},4}) $ & $ \interval[{4, \infty}) $ \\ [0.5ex]
+	& $x=-4$ & $x=-2$ & $x=0$ & $x=5$\\ 	\hline
+	$2x^2 -3x -20$ & - & - & - & +\\
+	$x+3$ & - & + & + & +\\
+	$\dfrac{2x^2 -3x -20}{x+3} < 0$ & + & - & - & +\\ 
+\end{tabular}
+\end{center}
+\end{table}
+
+
+Por lo tanto, la solución para la desigualdad $\dfrac{2x^2 -3x -20}{x+3} < 0$ es el intervalo \\
+
+\[ \interval({-3, 4})  = \{ x \in \mathds{R} \mid -3 < x <4 \} \]
+
+
+
+\end{document}

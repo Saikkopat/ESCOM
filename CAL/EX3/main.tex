@@ -1,0 +1,220 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage[document]{ragged2e}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\renewcommand{\shorthandsspanish}{}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\usepackage{xparse}
+\usepackage{dsfont}
+
+\graphicspath{ {/home/saikkopat/Documents/school/CAL/EX1/} }
+
+\NewDocumentCommand{\INTERVALINNARDS}{ m m }{
+    #1 {,} #2
+}
+\NewDocumentCommand{\interval}{ s m >{\SplitArgument{1}{,}}m m o }{
+    \IfBooleanTF{#1}{
+        \left#2 \INTERVALINNARDS #3 \right#4
+    }{
+        \IfValueTF{#5}{
+            #5{#2} \INTERVALINNARDS #3 #5{#4}
+        }{
+            #2 \INTERVALINNARDS #3 #4
+        }
+    }
+}
+
+\geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+
+\begin{document}
+
+\begin{center}
+\Huge{Corrección del tercer examen parcial}\\
+\vspace{0.5cm}
+\Large{González Cárdenas Ángel Aquilez} \\
+\end{center}
+
+\vspace{0.5cm}
+
+
+\begin{enumerate}
+\centering
+	\item Usando un método adecuado, calcule las siguientes integrales indefinidas:
+	\begin{enumerate}
+		\item
+		\(\int \ln e^{\frac{1 - sen^2 x}{2}} dx\) 
+		\\ \vspace{0.5cm}
+		Respuesta: De las propiedades de los logaritmos tenemos que para \(\log_a a^x = x\), entonces
+		\begin{align*}
+			\int \ln e^{\frac{1 - sen^2 x}{2}} dx = \int \frac{1 - sen^2 x}{2} dx
+		\end{align*}
+		Y como \( 1 - \sen^2 x = cos^2 x \), reescribiendo
+		\begin{align*}
+			 = \int \frac{cos^2 x}{2} dx = \frac{1}{2} \int cos^2 x dx
+		\end{align*}
+		Y por la propiedad \(\cos^2 x = \frac{1}{2} + \frac{1}{2}\cos(2x)\), tenemos
+		\begin{align*}
+			 = \int [ \frac{1}{2} + \frac{1}{2}\cos(2x) ]dx = \frac{1}{2} \int dx + \frac{1}{2} \int \cos(2x) dx
+		\end{align*}
+		De modo que
+		\begin{align*}
+			\int \ln e^{\frac{1 - sen^2 x}{2}} dx = \frac{1}{2}[\frac{1}{2} x + \frac{1}{4} sen (2x)] + C =\frac{1}{4} x + \frac{1}{8} sen (2x) + C
+		\end{align*}
+
+		\item
+		\(\int \dfrac{\arctan \frac{t}{2}}{4 + t^2} dt\)
+		\\ \vspace{0.5cm}
+		Respuesta: Haciendo 
+		\begin{align*}
+			u= \arctan \frac{t}{2} \implies du=\frac{\frac{dt}{2}}{1 + \frac{t^2}{4}} = \frac{dt}{2(1+ \frac{t^2}{4})} = \frac{dt}{2 + \frac{1}{2} t^2}
+		\end{align*}
+		Multiplicando ambos lados de la igualdad por $\frac{1}{2}$ tenemos
+		\[ \frac{du}{2} = \frac{dt}{4 + t^2}\]
+		Por lo que
+		\begin{align*}
+			\int \frac{\arctan \frac{t}{2}}{4 + t^2} dt = \frac{1}{2} \int udu = \frac{u^2}{4} + C
+		\end{align*}
+		Y regresando la sustitución tenemos que el resultado nos da
+		\begin{align*}
+			 = \frac{1}{4} \arctan \frac{t}{2} + C
+		\end{align*}
+
+	\end{enumerate}
+	\newpage
+	\item Obtenga las siguientes integrales indefinidas según el método más conveniente:
+	\begin{enumerate}
+		\item \(\int \dfrac{\cos x}{ \sen x + \sen^3 x} dx \)
+		\\ \vspace{0.5cm}
+		Respuesta: Haciendo \(u = \sen x \implies du=\cos x dx\), tenemos
+		\begin{align*}
+			\int \frac{\cos x}{ \sen x + \sen^3 x} dx = \int \frac{1}{u + u^3} du
+		\end{align*}
+		Utilizando el método de funciones racionales, descomponemos la expresión como
+		\begin{align*}
+			\frac{1}{u + u^3} = \frac{A}{u} + \frac{Bu + C}{u^2 + 1}
+		\end{align*}
+		De donde \\
+		\[ 1 = A(u^2 + 1) + (Bu + C)u = Au^2 + Bu^2 + Cu + A \]
+		Para $u^2 = 0 \implies A+B =0$ \\
+		Para $u=0 \implies C = 0$,\\
+		y para los términos constantes tenemos $1 = A$, de modo que 
+		\[ A+B=0 \implies A =-B = -1\]\\
+		Por lo tanto, reescribiendo el cambio de variable tenemos que
+		\begin{align*}
+			\int \frac{1}{u + u^3} du = \int \frac{du}{u} - \int \frac{udu}{u^2 +1}
+		\end{align*}
+		Para el segundo miembro tenemos que 
+		\begin{align*}
+			v = u^2 + 1 \implies dv=2udu, \frac{1}{2}dv = udu
+		\end{align*}
+		Por lo tanto
+		\begin{align*}
+			= \int \frac{du}{u} - \frac{1}{2} \int \frac{dv}{v} = \ln \mid u \mid - \frac{1}{2} \ln \mid v \mid + C
+		\end{align*}
+		De modo que 
+		\begin{align*}
+			 = \ln \mid u \mid - \ln \mid u^2 + 1 \mid +C = \ln \mid \sen x \mid - \frac{1}{2}  \ln \mid \sen^2 x +1 \mid +C
+		\end{align*}
+		
+		\item $\int \dfrac{e^{-x}}{(e^{-2x} + 1)^{\frac{3}{2}}} dx$
+		\\ \vspace{0.5cm}
+		Respuesta: Como
+		\begin{align*}
+			\int \frac{e^{-x}}{(e^{-2x} + 1)^{\frac{3}{2}}} dx = \int \frac{dx}{e^x(e^{-2x} + 1)^\frac{3}{2}}
+		\end{align*}
+		hacemos $u = e^x \implies du = e^x dx, \frac{du}{u^2} = \frac{dx}{e^x}$, de modo que
+		\begin{align*}
+			=\int \frac{1}{(\frac{1}{u^2} + 1)^\frac{3}{2} u^2} du
+		\end{align*}
+		Luego, haciendo $v = \frac{1}{u} \implies dv= -\frac{1}{u^2} du$, y utilizando el método de sustitución trigonométrica hacemos
+		\[	v = \tan \theta \implies dv = \sec^2 \theta d\theta \] \\
+		Y de la propiedad trigonométrica
+		\[\sec^2 x - \tan^2 x = 1 \implies \sec^2 x = 1+\tan^2 x\]\\
+
+		De modo que 
+
+		\begin{align*}
+			= -\int \frac{1}{(v^2 + 1)^\frac{3}{2}}dv = -\int \frac{1}{(\tan^2 \theta +1)^\frac{3}{2}} \sec^2 \theta d\theta = -\int \frac{\sec^2 \theta d\theta}{(\sec^2 \theta)\frac{3}{2}} = -\int \frac{\sec^2 \theta}{\sec^3 \theta} d\theta
+		\end{align*}
+
+		Lo que resulta en 
+
+		\begin{align*}
+			=-\int \frac{d\theta}{\sec \theta} = -\int \frac{d\theta}{\frac{1}{\cos \theta}} = -\int \cos \theta d\theta = -\sen \theta +C
+		\end{align*}
+
+		Y de la sustitución trigonométrica tenemos que $\theta = \arctan v$, y $\tan \theta = \frac{v}{1}$, así 
+		\[\sen \theta = \frac{v}{\sqrt{v^2 +1}}\]
+		\\ De modo que
+		\begin{align*}
+			= -\sen \theta +C = -\frac{v}{\sqrt{v^2 +1}} = - \frac{\frac{1}{u}}{\frac{\sqrt{\frac{1}{u^2} + 1}}{1}} +C = -\frac{1}{u\sqrt{\frac{1}{u^2} + 1}}
+		\end{align*}
+		Por lo que finalmente
+		\[= -\frac{e^{-x}}{\sqrt{e^{-x} + 1}} + C\]
+		
+	\end{enumerate}
+	\item Resuelve las siguientes integrales definidas según el método más conveniente:
+	\begin{enumerate}
+		\item $\int_{\frac{2\pi}{3}}^{\pi} \dfrac{\sen \frac{1}{2} t}{1 + \cos\frac{1}{2} t} dt$
+		\\ \vspace{0.5cm}
+		Respuesta: De la integral indefinida $\int \dfrac{\sen \frac{1}{2} t}{1 + \cos\frac{1}{2} t} dt$, hacemos $u = \frac{1}{2} t \implies du=\frac{1}{2}dt$, $2du = dt$, de modo que
+		\begin{align*}
+			= 2\int \frac{\sen u}{1 + \cos u} du
+		\end{align*}
+		Luego, haciendo $v = \cos u + 1 \implies dv= -\sen udu$, de modo que
+		\begin{align*}
+			=-2\int \frac{dv}{v} = -2\ln \mid v \mid +C = -2 \ln \mid \cos u + 1 \mid +C = -2 \ln \mid \cos \frac{1}{2}t + 1 \mid + C
+		\end{align*}
+		Como $\cos \frac{\pi}{2} = 0$ y $\cos \frac{\pi}{3} = \frac{1}{2}$, para la integral original tenemos que 
+		\begin{align*}
+			\int_{\pi}^{\frac{2\pi}{3}} \frac{\sen \frac{1}{2} t}{1 + \cos\frac{1}{2} t} dt = [-2\ln \mid \cos \frac{\pi}{2} + 1\mid] + [2\ln \mid \cos \frac{\pi}{2} + 1\mid] \approx 0.81
+		\end{align*}
+		\item $\int_{0}^{16} \sqrt{4 - \sqrt{x}} dx$
+		\\ \vspace{0.5cm}
+		Respuesta: De la integral indefinida $\int \sqrt{4 - \sqrt{x}} dx$, haciendo $u = \sqrt{x} \implies du = \frac{1}{2\sqrt{x}}dx$, $udu = \frac{dx}{2}$, de modo que
+
+		\begin{align*}
+			= 2\int \sqrt{4 - u}udu
+		\end{align*}
+		Luego, haciendo $v = 4 -u \implies dv = -du$, por lo cual
+		\begin{align*}
+			=2\int (v-4) \sqrt{v} dv = 2\int [v^{\frac{3}{2}} - 4\sqrt{v}]dv = 2\int v^{\frac{3}{2}}dv - 8\int \sqrt{v}dv = \frac{4}{5}v^{\frac{5}{2}} - \frac{16}{5}v^{\frac{3}{2}} + C
+		\end{align*}
+		Por lo tanto, tenemos que
+		\begin{align*}
+			=\frac{4}{5}(4 - \sqrt{x})^\frac{5}{2} -\frac{16}{3}(4-\sqrt{x})^\frac{3}{2} +C
+		\end{align*}
+		Finalmente, de la integral original tenemos el resultado 
+		\begin{align*}
+			\int_{0}^{16} \sqrt{4 - \sqrt{x}} dx &= [\frac{4}{5}(4 - \sqrt{16})^\frac{5}{2} -\frac{16}{3}(4-\sqrt{16})^\frac{3}{2}] - [\frac{4}{5}(4 - \sqrt{0})^\frac{5}{2} -\frac{16}{3}(4-\sqrt{0})^\frac{3}{2}] \\& \approx -17.06
+		\end{align*}
+
+	\end{enumerate}
+
+\end{enumerate}
+
+
+\end{document}
+
+
+
+
+      
+    
+
+
+    
+    
+        
+        

@@ -1,0 +1,162 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage[document]{ragged2e}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla]{babel}
+\renewcommand{\shorthandsspanish}{}
+\usepackage{xurl}
+\usepackage{lipsum}
+\usepackage{mwe}
+\usepackage{multicol}
+\usepackage{siunitx}
+\usepackage{listings}
+\usepackage{enumitem}
+
+\usepackage{listings}
+
+\begin{document}
+
+\begin{titlepage}
+	\begin{tikzpicture}[overlay, remember picture]
+		\path (current page.north east) ++(-0.3,-1.5) node[below left] {\includegraphics[width=0.35\textwidth]{/home/saikkopat/Documents/LOGOS IPN/EscudoESCOM}};
+	\end{tikzpicture}
+	\begin{tikzpicture}[overlay, remember picture]
+		\path (current page.north west) ++(1.5,-1) node[below right] {\includegraphics[width=0.2\textwidth]{/home/saikkopat/Documents/LOGOS IPN/logo}};
+	\end{tikzpicture}
+	\begin{center}
+		\vspace{-1.5cm}
+		{\LARGE Instituto Politécnico Nacional\par}
+		\vspace{.5cm}
+		{\LARGE Escuela Superior de Cómputo\par}
+		\vspace{2.5cm}
+		{\large Unidad de aprendizaje:}\\{\Large Fundamentos económicos\par}
+		\vspace{7cm}
+		{\scshape\Huge Actividad 9:\par}
+		{\itshape\Large Utilidad total y marginal\par}
+		\vfill
+		{\Large Alumno: González Cárdenas Ángel Aquilez\par}
+		\vspace{1cm}
+		{\Large Boleta: 2016630152\par}
+		\vspace{1cm}
+		{\Large Grupo: 2CV2\par}
+		\vspace{1cm}
+		{\Large Profesora: Villegas Navarrete Sonia\par}
+		\vfill
+	\end{center}
+\end{titlepage} 
+
+\newpage
+
+\textbf{\Large Ejercicio:}\\
+\vspace{0.5cm}
+
+Mariana gasta todo su ingreso en un producto \emph{A}.
+Para la resolución del ejercicio designaremos al bien \emph{A} como \textit{Tortas cubanas}.\\
+\vspace{.5cm}
+
+\begin{enumerate}[label=\alph*)]
+
+\item Obtenga la gráfica correspondiente a la utilidad total del producto \emph{A}.\par
+
+\item Obtenga la gráfica correspondiente a la utilidad marginal del producto \emph{A}.\par
+
+\end{enumerate}
+
+\vspace{1cm}
+
+De la Tabla 1 se obtienen la $UM_A$ para las \emph{Tortas cubanas} de la fórmula 
+
+\[
+	UM = \frac{\Delta UT_x}{\Delta x} = \frac{UT_x2 - UT_x1}{x2-x1}
+\]
+
+\begin{table}[ht!]
+\begin{center}
+\begin{tabular}{|c c c|}
+	\hline
+		Q & $UT_A$ & $UM_A$\\ [0.5ex]
+	\hline
+	0 & 0 & -\\
+	1 & 6 & 6\\
+	2 & 14 & 8\\
+	3 & 24 & 10\\
+	4 & 28 & 4\\
+	5 & 30 & 2\\
+	6 & 31 & 1\\
+	7 & 31 & 0\\
+	8 & 30 & 1\\
+	9 & 28 & 2\\	\hline
+
+
+
+\end{tabular}
+\label{table:1}
+\caption{Valores de utilidad total y marginal del bien \emph{A}}
+\end{center}
+\end{table}
+
+
+\newpage
+
+\begin{figure}[h!]
+	\centering
+	
+\begin{tikzpicture}
+
+\begin{axis} [
+	legend style={legend pos=outer north east},
+	width=12cm,	
+	grid=both,
+	ymin=0,
+	xmin=0, xmax=10,
+	xtick={0,1,...,10},
+	title=Utilidad total y marginal,
+	ylabel=Unidades de utilidad total (UUT) y Unidades de utilidad marginal (UUM),
+	xlabel=Tortas cubanas,
+]
+
+\addplot [color=blue] coordinates {
+			(0,0)
+			(1,6)
+			(2,14)
+			(3,24)
+			(4,28)
+			(5,30)
+			(6,31)
+			(7,31)
+			(8,30)
+			(9,28)
+
+};
+\addlegendentry{Utilidad total}
+
+\addplot [color=red] coordinates {
+			(.5,6)
+			(1.5,8)
+			(2.5,10)
+			(3.5,4)
+			(4.5,2)
+			(5.5,1)
+			(6.5,0)
+			(7.5,1)
+			(8.5,2)
+
+};
+\addlegendentry{Utilidad marginal}
+
+\end{axis}
+\end{tikzpicture}
+\caption{Utilidad total y marginal}
+\end{figure}
+
+
+\vspace{3cm}
+A continuación se anexa el ejercicio realizado en clase:
+
+\end{document}

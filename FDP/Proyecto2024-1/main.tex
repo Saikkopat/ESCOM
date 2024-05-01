@@ -1,0 +1,112 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage[document]{ragged2e}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla]{babel}
+\renewcommand{\shorthandsspanish}{}
+\usepackage{xurl}
+\usepackage{lipsum}
+\usepackage{mwe}
+\usepackage{multicol}
+\usepackage{siunitx}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{tabularray}
+\usepackage{schemata}
+
+
+\renewcommand{\theenumi}{\Alph{enumi}}
+
+\begin{document}
+
+\begin{titlepage}
+	\begin{tikzpicture}[overlay, remember picture]
+		\path (current page.north east) ++(-0.3,-1.8) node[below left] {\includegraphics[width=0.35\textwidth]{/home/saikkopat/Documents/LOGOS IPN/EscudoESCOM}};
+	\end{tikzpicture}
+	\begin{tikzpicture}[overlay, remember picture]
+		\path (current page.north west) ++(1.5,-1) node[below right] {\includegraphics[width=0.2\textwidth]{/home/saikkopat/Documents/LOGOS IPN/logo}};
+	\end{tikzpicture}
+	\begin{center}
+		\vspace{-1.5cm}
+		{\LARGE Instituto Politécnico Nacional\par}
+		\vspace{.5cm}
+		{\LARGE Escuela Superior de Cómputo\par}
+		\vspace{2.5cm}
+		{\large Unidad de aprendizaje:}\\{\Large Fundamentos de programación\par}
+		\vspace{5cm}
+		{\scshape\Huge Proyecto:\par}
+		{\itshape\Large Generador de laberintos\par}
+		\vfill
+		{\Large Alumno:\par}
+		\vspace{0.7cm}
+		{\Large González Cárdenas Ángel Aquilez\par}
+		\vspace{0.5cm}
+		{\Large Boleta: 2016630152\par}
+		\vspace{0.5cm}
+		{\Large Grupo: 1CV7\par}
+		\vspace{1cm}
+		{\Large Profesor: Gutiérrez Aldana Eduardo\par}
+		\vfill
+	\end{center}
+\end{titlepage} 
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\usepgfplotslibrary{units}
+\justifying
+
+\section{Introducción}
+
+El presente escrito documenta el proceso de resolución de una problemática particular presentada como parte del proyecto de evaluación correspondiente al semestre \emph{2024-1} de la unidad de aprendizaje \emph{Fundamentos de programación} para la carrera de \emph{Ingeniería en Sistemas Computacionales} del programa académico \emph{ISC2020}.
+
+\section{Problemática a resolver}
+
+¿Cómo se puede diseñar e implementar un algoritmo que genere laberintos aleatorios con diferentes niveles de dificultad, utilizando matrices bidimensionales como estructura de datos y el lenguaje de programación C?\par
+
+Esta problemática plantea el reto de crear un programa que pueda generar laberintos de forma dinámica, sin tener que definirlos previamente de forma estática. Además, se debe considerar el nivel de dificultad del laberinto, que puede depender de factores como el tamaño de la matriz, el número y la posición de las paredes, la existencia o no de múltiples soluciones, etc. El programa debe ser capaz de mostrar el laberinto generado en la pantalla, así como permitir al usuario interactuar con él para intentar resolverlo. El lenguaje de programación C se elige por su eficiencia y su facilidad para trabajar con matrices y punteros.\par
+\vspace{.5cm}
+El programa ya realizado deberá realizar las siguientes tareas:
+
+\begin{enumerate}
+	\item Inicialización:
+    Comienza con una cuadrícula (matriz bidimensional) de celdas. Inicialmente, todas las celdas se consideran paredes. Elige una celda inicial al azar y márcala como un pasillo. Agrega esta celda a una pila o lista.
+
+    \item Bucle principal:
+    Mientras la pila no esté vacía, realiza los siguientes pasos:
+
+    \begin{enumerate}[label=\alph*]
+		\item Paso a la siguiente celda: Saca la celda superior de la pila. Esta será tu celda actual.
+
+    	\item Obtén vecinos no visitados: Encuentra los vecinos no visitados (celdas adyacentes) de la celda actual.
+
+    	\item Si no hay vecinos no visitados: Retrocede a la celda anterior sacada de la pila. Esto es lo que hace que el algoritmo sea "backtracking" (retroceso).
+
+    	\item Si hay vecinos no visitados: Elige al azar uno de los vecinos no visitados. Marca la celda vecina como pasillo y la celda actual como visitada. Agrega la celda actual a la pila.
+	 \end{enumerate}
+
+    \item Terminación: Continúa el proceso hasta que todas las celdas hayan sido visitadas. En este punto, habrás creado un laberinto con pasillos y paredes.
+\end{enumerate}
+
+El algoritmo "Maze Carver" es recursivo en naturaleza debido a la pila o lista utilizada para rastrear las celdas visitadas. En cada paso, se avanza y retrocede en la estructura de datos para construir gradualmente el laberinto.
+
+Este algoritmo tiene la ventaja de que puede generar laberintos con caminos largos y rutas interesantes. Además, es relativamente fácil de implementar y entender. Sin embargo, puede generar laberintos con muchos pasillos rectos y corredores largos, lo que puede no ser estéticamente agradable para algunos casos de uso.
+
+\vspace{0.5cm}
+
+
+
+
+
+\end{document}

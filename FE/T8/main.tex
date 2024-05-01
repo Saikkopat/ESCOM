@@ -1,0 +1,136 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage[document]{ragged2e}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla]{babel}
+\renewcommand{\shorthandsspanish}{}
+\usepackage{xurl}
+\usepackage{lipsum}
+\usepackage{mwe}
+\usepackage{multicol}
+\usepackage{siunitx}
+\usepackage{listings}
+\usepackage{enumitem}
+
+\usepackage{listings}
+
+\begin{document}
+
+\begin{titlepage}
+	\begin{tikzpicture}[overlay, remember picture]
+		\path (current page.north east) ++(-0.3,-1.5) node[below left] {\includegraphics[width=0.35\textwidth]{/home/saikkopat/Documents/LOGOS IPN/EscudoESCOM}};
+	\end{tikzpicture}
+	\begin{tikzpicture}[overlay, remember picture]
+		\path (current page.north west) ++(1.5,-1) node[below right] {\includegraphics[width=0.2\textwidth]{/home/saikkopat/Documents/LOGOS IPN/logo}};
+	\end{tikzpicture}
+	\begin{center}
+		\vspace{-1.5cm}
+		{\LARGE Instituto Politécnico Nacional\par}
+		\vspace{.5cm}
+		{\LARGE Escuela Superior de Cómputo\par}
+		\vspace{2.5cm}
+		{\large Unidad de aprendizaje:}\\{\Large Fundamentos económicos\par}
+		\vspace{7cm}
+		{\scshape\Huge Actividad 8:\par}
+		{\itshape\Large Restricción presupuestal\par}
+		\vfill
+		{\Large Alumno: González Cárdenas Ángel Aquilez\par}
+		\vspace{1cm}
+		{\Large Boleta: 2016630152\par}
+		\vspace{1cm}
+		{\Large Grupo: 2CV2\par}
+		\vspace{1cm}
+		{\Large Profesora: Villegas Navarrete Sonia\par}
+		\vfill
+	\end{center}
+\end{titlepage} 
+
+\newpage
+
+\textbf{\Large Ejercicio:}\\
+\vspace{0.5cm}
+
+Un consumidor cuenta con una renta de \$600, que puede gastar únicamente entre dos bienes \emph{A} y \emph{B}. El precio del bien A es de \$2 y el del bien B es de \$3.\par
+Para la resolución del ejercicio designaremos al bien \emph{A} como \textit{Rosquillas} y al bien \emph{B} como \textit{Panquecitos}.\\
+\vspace{.5cm}
+
+\begin{enumerate}[label=\alph*)]
+
+\item ¿Cuál será la función de su restricción presupuestaria?\\Debido a que los recursos (como el ingreso o el tiempo) son limitados, se fija la cantidad de presupuesto que se designará para la adquisición de determinados bienes, por lo que se podrán conocer las diferentes combinaciones de compra con tal ingreso.\par
+
+\item ¿Qué número de unidades de \textit{Rosquillas} podrá adquirir si dedica toda su renta a comprar dicho bien?\\Como la razón entre el \emph{Ingreso} y el \emph{Precio del bien} nos indica, con\\ \[Ingreso = \$600, \frac{\$600}{\$2} = 300\;unidades\]\par
+
+\item ¿Cuánto podrá comprar de \textit{Panquecitos} si no comprara nada de \textit{Rosquillas}?\\Con \[Ingreso = \$600, \frac{\$600}{\$3} = 200\;unidades\]\par
+
+\item Represente gráficamente la restricción presupuestaria. \\Ver $RP_1$ en la Figura 1.\par
+
+\item Si la renta del consumidor aumenta hasta \$900, ¿qué pasaría con la restricción presupuestaria?. Represéntelo gráficamente.\\ Se tendría un aumento en las combinaciones de consumo, quedando así
+
+	\[Rosquillas = \frac{\$900}{\$2} = 450\;unidades\]
+\\
+	\[Panquecitos = \frac{\$900}{\$3} = 300\;unidades\]
+
+ y quedando representado en la Figura 1 por la $RP_2$.\par
+
+\item Suponga que el precio de los \textit{Panquecitos} se duplica. Represente la nueva restricción presupuestaria con el aumento de la renta.\\
+	\[Rosquillas = \frac{\$900}{\$2} = 450\;unidades\]
+\\
+	\[Panquecitos = \frac{\$900}{\$6} = 150\;unidades\]
+ quedando representado en la Figura 1 por la $RP_3$.\par
+
+\end{enumerate}
+
+\newpage
+
+\begin{figure}[h!]
+	\centering
+	
+\begin{tikzpicture}
+
+\begin{axis} [
+	legend style={legend pos=outer north east},
+	width=12cm,	
+	grid=both,
+	ymin=0,
+	xmin=0, xmax=450,
+	xtick={0,50,...,450},
+	title=Restricción presupuestal,
+	ylabel=Panquecitos,
+	xlabel=Rosquillas,
+]
+
+\addplot [color=blue] coordinates {
+			(0, 200)
+			(300, 0)
+
+};
+\addlegendentry{$RP_1$}
+
+\addplot [color=red] coordinates {
+			(0, 300)
+			(450, 0)
+};
+\addlegendentry{$RP_2$}
+
+\addplot [color=green] coordinates {
+			(0, 150)
+			(450, 0)
+};
+\addlegendentry{$RP_3$}
+
+\end{axis}
+\end{tikzpicture}
+\caption{Restricción presupuestal entre Rosquillas y Panquecitos}
+\end{figure}
+
+
+\vspace{3cm}
+A continuación se anexa el ejercicio realizado en clase:
+
+\end{document}

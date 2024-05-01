@@ -1,0 +1,83 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage[document]{ragged2e}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\renewcommand{\shorthandsspanish}{}
+\usepackage{xurl}
+
+\usepackage{listings}
+
+\begin{document}
+
+\begin{titlepage}
+	\begin{tikzpicture}[overlay, remember picture]
+		\path (current page.north east) ++(-0.3,-1.5) node[below left] {\includegraphics[width=0.4\textwidth]{/home/saikkopat/Documents/LOGOS IPN/EscudoESCOM}};
+	\end{tikzpicture}
+	\begin{tikzpicture}[overlay, remember picture]
+		\path (current page.north west) ++(1.5,-1) node[below right] {\includegraphics[width=0.23\textwidth]{/home/saikkopat/Documents/LOGOS IPN/logo}};
+	\end{tikzpicture}
+	\begin{center}
+		\vspace{-3cm}
+		{\LARGE Instituto Politécnico Nacional\par}
+		{\Large Escuela Superior de Cómputo\par}
+		\vspace{7cm}
+		{\scshape\Huge Tarea A6\par}
+		{\itshape\Large Modelos Conceptuales de Datos\par}
+		\vfill
+		{\Large Alumno: González Cárdenas Ángel Aquilez\par}
+		\vspace{1cm}
+		{\Large Boleta: 2016630152\par}
+		\vspace{1cm}
+		{\Large Grupo: 3CV1\par}
+		\vspace{1cm}
+		{\Large Profesor: Blanco Almazán Iván Eduardo\par}
+		\vfill
+	\end{center}
+\end{titlepage} 
+
+\newpage
+
+\textbf{\Large Modelo de datos}\\
+\vspace{0.5cm}
+
+Gracias a la \emph{abstracción}, nos es posible concentrarnos en los datos de una forma mas concreta y especifica.\\
+Así los \emph{modelos de datos} son un las herramientas conceptuales con las cuales se describen los datos, sus relaciones y características. Estos a su ves pueden dividirse en dos tipos:\\
+
+
+\begin{itemize}
+	\item\emph{Conceptuales}, que ofrecen una representación a gran escala de los datos y el sistema que lo gestiona.
+	\item\emph{Lógicos}, que son menos abstractos y especifican detalles sobre las relaciones entre las entidades que componen el sistema y la base de datos.
+	\item\emph{Físicos}, que contienen detalles técnicos sobre la implementación de los datos como los tamaños de almacenamiento.
+\end{itemize}
+
+Entonces, dentro de los modelos conceptuales de datos encontramos las siguientes categorías:
+
+\begin{itemize}
+	\item\emph{Relacional}
+	Utiliza una colección de tablas para representar los datos y sus relaciones entre ellos, donde cada tabla tiene múltiples columnas que almacenan determinados tipos de datos  y cada columna tiene un nombre único. También a las tablas se les conoce como \emph{relaciones}.
+	\item\emph{Jerárquico}
+	Cada registro tiene una estructura que lo relaciona con mas registros dependientes de este.
+	\item\emph{Entidad-Relación}
+	Utiliza un conjunto de objetos llamados \emph{entidades}, y las \emph{relaciones} entre esos objetos. Cada objeto es una representación abstracta de un objeto real que es distinto y único de cualquier otro.
+	\item\emph{Semi-estructurado}
+	En contraste a los modelos anteriores que requieren que cada registro de información tenga los mismos tipos de datos, este modelo permite la creación de registros que tengas diferentes tipos de atributos.
+	\item\emph{Orientado a objetos}
+	Modela los datos manera similar al modelo relacional, y permite almacenar procedimientos en la base de datos que son ejecutados por el sistema. Agrega también conceptos de la programación orientada a objetos como encapsulamiento, herencia, etc.
+	\item\emph{Dimensionales}
+	Desarrollados por Ralph Kimball, se crearon para la optimización en la obtención de métricas e indicadores en los centros de datos. Aumentan la redundancia de los datos para facilitar la localización de información.
+\end{itemize}
+
+\newpage
+
+\textbf{Bibliografía}
+
+\begin{enumerate}
+	\item Silberschatz, A., Korth, H., \& Sudarshan, S. (2019) Database System Concepts (7a ed.). McGraw-Hill.
+	\item What is data modeling? (s/f). IBM.com. Recuperado el 1 de marzo de 2023, de https://www.ibm.com/topics/data-modeling
+\end{enumerate}
+
+\end{document}

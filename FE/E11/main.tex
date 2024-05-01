@@ -1,0 +1,105 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage[document]{ragged2e}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla]{babel}
+\renewcommand{\shorthandsspanish}{}
+\usepackage{xurl}
+\usepackage{lipsum}
+\usepackage{mwe}
+\usepackage{multicol}
+\usepackage{siunitx}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{tabularray}
+\graphicspath{ {/home/saikkopat/Documents/ESCOM/FE/C10/} }
+
+\begin{document}
+
+\begin{titlepage}
+	\begin{tikzpicture}[overlay, remember picture]
+		\path (current page.north east) ++(-0.3,-1.5) node[below left] {\includegraphics[width=0.35\textwidth]{/home/saikkopat/Documents/LOGOS IPN/EscudoESCOM}};
+	\end{tikzpicture}
+	\begin{tikzpicture}[overlay, remember picture]
+		\path (current page.north west) ++(1.5,-1) node[below right] {\includegraphics[width=0.2\textwidth]{/home/saikkopat/Documents/LOGOS IPN/logo}};
+	\end{tikzpicture}
+	\begin{center}
+		\vspace{-1.5cm}
+		{\LARGE Instituto Politécnico Nacional\par}
+		\vspace{.5cm}
+		{\LARGE Escuela Superior de Cómputo\par}
+		\vspace{2.5cm}
+		{\large Unidad de aprendizaje:}\\{\Large Fundamentos económicos\par}
+		\vspace{7cm}
+		{\scshape\Huge Actividad 11:\par}
+		{\itshape\Large Elasticidad precio y cruzada de la oferta\par}
+		\vfill
+		{\Large Alumno: González Cárdenas Ángel Aquilez\par}
+		\vspace{1cm}
+		{\Large Boleta: 2016630152\par}
+		\vspace{1cm}
+		{\Large Grupo: 2CV2\par}
+		\vspace{1cm}
+		{\Large Profesora: Villegas Navarrete Sonia\par}
+		\vfill
+	\end{center}
+\end{titlepage} 
+
+\newpage
+
+Realizar los siguientes ejercicios de elasticidad de la oferta. \\
+\vspace{0.5cm}
+Desarrolle el ejercicio y determine el tipo de elasticidad a calcular en cada caso:\\
+\begin{enumerate}
+	\item Suponiendo que el precio de los lápices cambia de 5 pesos a 6 pesos y la cantidad
+ofrecida cambia de 20 unidades por proveedor por semana a 30 unidades por proveedor
+por semana.\\
+	Respuesta: Primero calculamos la variación en el precio:
+	\[\Delta P = \frac{6 - 5}{11 \div 2} \times 100\% = \frac{1}{5.5} \times 100\% \approx 0.18 \times 100\% = 18\% \]
+	\\ Y para la variación en la cantidad se tiene:
+	\[\Delta Q = \frac{30 - 20}{50 \div 2} \times 100\% = \frac{10}{25} \times 100\% = 0.4 \times 100\% = 40\% \]\\
+	De modo que:
+
+	\[E_{xy} = \frac{\Delta Q}{\Delta P} = \frac{40\%}{18\%} \approx 2.2 \] \\
+
+	Como $E_{xy} > 1$, los lápices son un bien de \emph{lujo}.
+
+	\item Suponiendo que una tortillería incrementa su precio de la tortilla de harina de 20.50
+a 22.10 pesos por kilo y la oferta de la tortilla de maíz baja de 310 a 298 kilos de tortilla. \\
+	Respuesta: Primero calculamos la variación en el precio:
+	\[\Delta P = \frac{22.10 - 20.50}{ 42.6 \div 2} \times 100\% = \frac{1.6}{21.3} \times 100\% \approx 0.07 \times 100\% = 7\% \]
+	\\ Y para la variación en la cantidad se tiene:
+	\[\Delta Q = \frac{298 - 310}{608 \div 2} \times 100\% = \frac{-12}{304} \times 100\% \approx -0.03 \times 100\% = -3\% \]\\
+	De modo que:
+
+	\[E_{xy} = \frac{\Delta Q}{\Delta P} = \frac{-3\%}{7\%} \approx -0.42 \] \\
+
+	Como $E_{xy} < 0 $, las tortillas de harina son un \emph{sustituto} de las tortillas de maíz.
+
+	\item Suponiendo que una empresa de leche incrementa su precio de la leche de 21 a
+23.50 pesos y la oferta de los quesos aumenta de 492 a 697 piezas de queso.\\
+	Respuesta: Para la variación en el precio tenemos:
+	\[\Delta P = \frac{23.50 - 21}{44.5 \div 2} \times 100\% = \frac{2.5}{22.25} \times 100\% \approx 0.11 \times 100\% = 11\% \]
+	\\ Y para la variación en la cantidad se tiene:
+	\[\Delta Q = \frac{697 - 492}{1189 \div 2} \times 100\% = \frac{205}{594.5} \times 100\% \approx 0.34 \times 100\% = 34\% \]\\
+	De modo que:
+
+	\[E_{xy} = \frac{\Delta Q}{\Delta P} = \frac{34\%}{11\%} \approx 3.09 \] \\
+
+	Como $E_{xy} > 0$, la leche es un \emph{complemento} de las piezas de queso.
+\end{enumerate}
+
+\vspace{1cm}
+
+A continuación se anexa la evidencia del ejercicio realizado en clase:
+
+\vspace{1cm}
+\end{document}

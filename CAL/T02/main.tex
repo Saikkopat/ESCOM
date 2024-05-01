@@ -1,0 +1,162 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage[document]{ragged2e}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla]{babel}
+\renewcommand{\shorthandsspanish}{}
+\usepackage{xurl}
+\usepackage{lipsum}
+\usepackage{mwe}
+\usepackage{multicol}
+\usepackage{siunitx}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{tabularray}
+\usepackage{xparse}
+\usepackage{dsfont}
+
+
+\NewDocumentCommand{\INTERVALINNARDS}{ m m }{
+    #1 {,} #2
+}
+\NewDocumentCommand{\interval}{ s m >{\SplitArgument{1}{,}}m m o }{
+    \IfBooleanTF{#1}{
+        \left#2 \INTERVALINNARDS #3 \right#4
+    }{
+        \IfValueTF{#5}{
+            #5{#2} \INTERVALINNARDS #3 #5{#4}
+        }{
+            #2 \INTERVALINNARDS #3 #4
+        }
+    }
+}
+
+
+\begin{document}
+
+\begin{titlepage}
+	\begin{tikzpicture}[overlay, remember picture]
+		\path (current page.north east) ++(-0.3,-1.8) node[below left] {\includegraphics[width=0.35\textwidth]{/home/saikkopat/Documents/LOGOS IPN/EscudoESCOM}};
+	\end{tikzpicture}
+	\begin{tikzpicture}[overlay, remember picture]
+		\path (current page.north west) ++(1.5,-1) node[below right] {\includegraphics[width=0.2\textwidth]{/home/saikkopat/Documents/LOGOS IPN/logo}};
+	\end{tikzpicture}
+	\begin{center}
+		\vspace{-1.5cm}
+		{\LARGE Instituto Politécnico Nacional\par}
+		\vspace{.5cm}
+		{\LARGE Escuela Superior de Cómputo\par}
+		\vspace{2.5cm}
+		{\large Unidad de aprendizaje:}\\{\Large Cálculo\par}
+		\vspace{5cm}
+		{\scshape\Huge Tarea 2:\par}
+		{\itshape\Large ¿Cómo resolver inecuaciones con dos o más valores absolutos?\par}
+		\vfill
+		{\Large Alumno:\par}
+		\vspace{0.7cm}
+		{\Large González Cárdenas Ángel Aquilez\par}
+		\vspace{0.5cm}
+		{\Large Boleta: 2016630152\par}
+		\vspace{0.5cm}
+		{\Large Grupo: 1CV8\par}
+		\vspace{1cm}
+		{\Large Profesor: Jurado Jiménez Roberto\par}
+		\vfill
+	\end{center}
+\end{titlepage} 
+
+\newpage
+
+\begin{Large}
+	¿Cómo resolver inecuaciones con dos o más valores absolutos?
+\end{Large}
+
+\vspace{.5cm}
+
+	Resolver desigualdades con dos o más valores absolutos o que involucran múltiples términos dentro de los valores absolutos, requieren descomponer el problema en varios casos para encontrar todas las soluciones posibles. Una estrategia general sobre cómo resolver este tipo de desigualdades consta de los siguientes pasos:
+
+\begin{enumerate}
+	\item Identificar los valores absolutos anidados: Se comienza por identificar los términos que están dentro de los valores absolutos anidados en la desigualdad. Por lo general, se trabaja con una expresión de la forma $ \mid A \mid <  \mid B \mid $ , $ \mid A \mid  >  \mid B \mid $ , $ \mid A \mid  \le  \mid B \mid $ o $ \mid A \mid  \ge  \mid B \mid $.
+
+	\item Descomponer en casos: se descompone el problema en varios casos según el signo de los términos involucrados. Por ejemplo, se pueden considerar dos casos: A > 0 y A < 0.
+
+	\item Resolver cada caso por separado:
+	\begin{enumerate}
+		\item A > 0: En este caso, los valores absolutos se reducen a su expresión sin valor absoluto. Luego, se resuelve la desigualdad original sin los valores absolutos.
+		\item A < 0: En este caso, los valores absolutos se convierten en su negativo, es decir,  $\mid A \mid$ se convierte en -A. Luego, se resuelve la desigualdad original con los valores absolutos reemplazados por sus negativos.
+	\end{enumerate}
+
+	\item Combinar los resultados: Una vez que se haya resuelto cada caso por separado, se combinan las soluciones para obtener la solución completa de la desigualdad original.
+
+\end{enumerate}
+
+Ejemplo 1: Resolver $ \mid 2x - 3 \mid  <  \mid x + 1 \mid $
+
+\begin{enumerate}
+	\item Primero, identificamos los valores absolutos: $ \mid 2x - 3 \mid $ y $ \mid x + 1 \mid $
+	
+	\item Después, debemos considerar los cuatro posibles casos para los valores absolutos:
+		\begin{enumerate}
+			\item $2x-3\geq0$ y $x+1\geq0$, lo que implica que $x\geq\frac{3}{2}$ y $x\geq-1$.
+			\item $2x-3<0$ y $x+1\geq0$, lo que implica que $x<\frac{3}{2}$ y $x\geq-1$.
+			\item $2x-3\geq0$ y $x+1<0$, lo que implica que $x\geq\frac{3}{2}$ y $x<-1$.
+			\item $2x-3<0$ y $x+1<0$, lo que implica que $x<\frac{3}{2}$ y $x<-1$.
+		\end{enumerate}
+	
+	\item Resolviendo los casos por separado tenemos que:
+		\begin{enumerate}
+			\item Si $x\geq\frac{3}{2}$ y $x\geq-1$, entonces la desigualdad se convierte en $2x-3<x+1$, es decir, $x<4$. Como ambas condiciones deben cumplirse, las soluciones para este caso son $\frac{3}{2}\leq x<4$.
+			\item Si $x<\frac{3}{2}$ y $x\geq-1$, entonces la desigualdad se convierte en $-(2x-3)<x+1$, es decir, $-2x+3<x+1$ o bien, $-3x<-2$. Resolviendo esta desigualdad obtenemos que las soluciones para este caso son $\frac{2}{3}< x< \frac{3}{2}$.
+			\item Si $x\geq\frac{3}{2}$ y $x<-1$, entonces no hay soluciones, ya que ambas condiciones no pueden cumplirse al mismo tiempo.
+			\item Si $x<\frac{3}{2}$ y $x<-1$, entonces la desigualdad se convierte en $-(2x-3)<-(x+1)$, es decir, $-2x+3<-x-1$ o bien, $-x>4$. Resolviendo esta desigualdad obtenemos que las soluciones para este caso son vacías.
+		\end{enumerate}
+
+	\item Finalmente, combinamos todas las soluciones de los casos para obtener la solución final de la desigualdad original: $ \frac{2}{3}< x< \frac{3}{2}$  o  $\frac{3}{2}\leq x<4 $.
+		
+\end{enumerate}
+
+\vspace{1cm}
+	Ejemplo 2: Resolver $| |x-2| - 3 | < 4$
+
+\begin{enumerate}
+	\item Primero, identificamos que $\mid x - 2 \mid$ es nuestro primero valor absoluto.
+	\item De modo que debemos considerar los dos posibles casos para el valor absoluto interno $|x-2|$
+		\begin{enumerate}
+			\item $x-2 \ge 0$, lo que implica que $x \geq 2$.
+			\item $x-2 < 0$, lo que implica que $x < 2$.
+		\end{enumerate}
+	\item Resolviendo tenemos que
+		\begin{enumerate}
+			\item Si $x \geq 2$, entonces la desigualdad se convierte en $|x - 2 - 3| < 4$, es decir, $|x - 5| < 4$. Esto nos da dos subcasos
+				\begin{enumerate}
+					\item $x - 5 < 4$ y $x - 5 \geq 0$, lo que nos da $x < 9$ y $x \geq 5$. Ambas condiciones deben cumplirse, por lo que las soluciones para este subcaso son $5 \leq x < 9$.
+					\item $-(x - 5) < 4$ y $x - 5 < 0$, lo que nos da $-x + 5 < 4$ y $x < 5$. Resolviendo la primera desigualdad obtenemos $x > 1$. Ambas condiciones deben cumplirse, por lo que las soluciones para este subcaso son $1 < x < 5$.
+				\end{enumerate}
+			\item Caso 2: Si $x < 2$, entonces la desigualdad se convierte en $|- (x - 2) -3 | <4$, es decir, $|- x +2 -3 |<4$ o bien, $|3-x|<4$. Esto nos da dos subcasos:
+			\begin{enumerate}
+				\item $3-x<4$ y $3-x\geq0$, lo que nos da $-x<1$ y $-x\leq-3$. Resolviendo ambas desigualdades obtenemos que las soluciones para este subcaso son $-3\leq x< -1$.
+				\item $-(3-x)<4$ y $3-x<0$, lo que nos da $x<7$ y $x>3$. Ambas condiciones deben cumplirse, por lo que las soluciones para este subcaso son vacías.
+			\end{enumerate}
+		\end{enumerate}
+
+	\item Finalmente, combinamos todas las soluciones de los subcasos para obtener la solución final de la desigualdad original: $-3\leq x<-1$ o $1<x<9$
+\end{enumerate}
+
+\vspace{1cm}
+Ejemplo: resolver $\dfrac{|x+|x-1||}{x^2+1}<1$.\par
+
+\vspace{0.5cm}
+De manera más breve, identificamos que si $x-1\geq0$, entonces $x\geq1$ y la desigualdad se convierte en $\dfrac{|x-(x-1)|}{x^2+1}<1$, lo que se simplifica a \[ \dfrac{1}{x^2+1}<1 \]. \\Esta desigualdad es verdadera para todos los valores de $x\geq1$. 
+\\Si $x-1<0$, entonces $x<1$ y la desigualdad se convierte en $\dfrac{|x+(1-x)|}{x^2+1}<1$, lo que se simplifica a \[ \dfrac{1}{x^2+1}<1 \].\\ Esta desigualdad también es verdadera para todos los valores de $x<1$. 
+\vspace{.5cm}
+\\Por lo tanto, la solución de esta desigualdad es el conjunto de todos los números reales, es decir, $(-\infty,\infty)$.
+
+\end{document}

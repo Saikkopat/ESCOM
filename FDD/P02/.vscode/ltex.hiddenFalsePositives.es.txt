@@ -1,0 +1,1 @@
+{"rule":"MORFOLOGIK_RULE_ES","sentence":"^\\QUna vez obtenidos los equivalentes simplicados se procedió a construir el circuito, que se aprecia en la Figura 15:\\E$"}

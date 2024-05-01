@@ -1,0 +1,3 @@
+Juan Pérez,juan@example.com,5551136173
+María López,maria@example.com,5584869907
+Carlos Rodríguez,carlos@example.com,9498998825

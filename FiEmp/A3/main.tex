@@ -1,0 +1,243 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage[document]{ragged2e}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla]{babel}
+\renewcommand{\shorthandsspanish}{}
+\usepackage{xurl}
+\usepackage{lipsum}
+\usepackage{mwe}
+\usepackage{multicol}
+\usepackage{siunitx}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{tabularray}
+
+\usepackage{schemata}
+\usepackage{pdflscape}
+\usepackage{fancyhdr}
+
+\def\fillandplacepagenumber{%
+ \par\pagestyle{empty}%
+ \vbox to 0pt{\vss}\vfill
+ \vbox to 0pt{\baselineskip0pt
+   \hbox to\linewidth{\hss}%
+   \baselineskip\footskip
+   \hbox to\linewidth{%
+     \hfil\thepage\hfil}\vss}}
+
+
+\begin{document}
+
+\begin{titlepage}
+	\begin{tikzpicture}[overlay, remember picture]
+		\path (current page.north east) ++(-0.15,-1.6) node[below left] {\includegraphics[width=0.35\textwidth]{/home/saikkopat/Documents/LOGOS IPN/EscudoESCOM}};
+	\end{tikzpicture}
+	\begin{tikzpicture}[overlay, remember picture]
+		\path (current page.north west) ++(1.5,-1) node[below right] {\includegraphics[width=0.2\textwidth]{/home/saikkopat/Documents/LOGOS IPN/logo}};
+	\end{tikzpicture}
+	\begin{center}
+		\vspace{-1.5cm}
+		{\LARGE Instituto Politécnico Nacional\par}
+		\vspace{.5cm}
+		{\LARGE Escuela Superior de Cómputo\par}
+		\vspace{2.5cm}
+		{\large Unidad de aprendizaje:}\\{\Large Finanzas empresariales\par}
+		\vspace{5cm}
+		{\scshape\Huge Actividad 3:\par}
+		{\itshape\Large Entorno de la empresa\par}
+		\vfill
+		{\Large Integrantes:\par}
+		\vspace{0.7cm}
+		{\Large Gómez Tovar Yoshua Oziel\par}
+		{\Large Boleta: 2023630391\par}
+		\vspace{0.5cm}
+		{\Large González Cárdenas Ángel Aquilez\par}
+		{\Large Boleta: 2016630152\par}
+		\vspace{0.5cm}
+		{\Large Zarco Sosa Kevin\par}
+		{\Large Boleta: 2023630735\par}
+		\vspace{1cm}
+		{\Large Grupo: 3CV4\par}
+		\vspace{1cm}
+		{\Large Profesor: Estrada Elizalde Serafín\par}
+		\vfill
+	\end{center}
+\end{titlepage} 
+
+\newpage
+
+\begin{landscape}
+\section*{Entorno de la empresa}
+
+De acuerdo a la lectura elabora un cuadro sinóptico para representar el entorno macroeconómico de la empresa y sus aspectos, con una breve definición. De igual forma otro cuadro sinóptico para expresar el entorno
+microeconómico.\par
+
+\vspace{0.2cm}
+
+\begin{figure}[ht!]
+	\schema {\schemabox{Entorno\\macroeconómico}} 
+		{
+			\schema {\schemabox{Condiciones\\macroeconómicas}}
+				{
+					\schema {\schemabox{Producto Interno Bruto (PIB)}}
+						{
+							{\schemabox{Medida del valor de todos los\\bienes y servicios producidos en una economía.}}
+						}
+					
+					\schema {\schemabox{Inflación}}
+						{
+							{\schemabox{Aumento sostenido de los precios de bienes y servicios en una economía.}}
+						}
+					
+					\schema {\schemabox{Empleo}}
+						{
+							{\schemabox{Indicador de la tasa de desempleo y la disponibilidad de mano de obra.}}
+						}
+					
+					\schema {\schemabox{Política monetaria\\y fiscal}}
+						{
+							{\schemabox{Control de la oferta de dinero y regulación de gastos e\\impuestos por parte del gobierno.}}
+						}
+					
+					\schema {\schemabox{Ciclo económico}}
+						{
+							{\schemabox{Patrón de fluctuación que experimenta una economía a lo largo \\del tiempo: Expansión, pico, contracción, fondo y recuperación.}}
+						}
+				}
+				
+			\schema {\schemabox{Contexto\\socioeconómico}}
+				{
+					\schema {\schemabox{Demografía}}
+						{
+							{\schemabox{Características de la población, como edad, migración, y grupos étnicos.}}
+						}
+					
+					\schema {\schemabox{Condiciones económicas}}
+						{
+							{\schemabox{Poder adquisitivo, sectores de inversión y capacidad de\\ahorro de la población.}}
+						}
+					
+					\schema {\schemabox{Aspecto legal}}
+						{
+							{\schemabox{Normativas, leyes y regulaciones que afectan a las empresas en un área.}}
+						}
+					
+					\schema {\schemabox{Características\\culturales y sociales}}
+						{
+							{\schemabox{Tradiciones, costumbres y comportamientos sociales en una sociedad.}}
+						}
+					
+					\schema {\schemabox{Situación política}}
+						{
+							{\schemabox{Condiciones y estabilidad del entorno político en una región.}}
+						}
+					
+					\schema {\schemabox{Recursos tecnológicos}}
+						{
+							{\schemabox{Infraestructuras, tecnologías disponibles y conectividad en la sociedad.}}
+						}
+					
+					\schema {\schemabox{Medioambiente}}
+						{
+							{\schemabox{Consideraciones sobre la conservación de recursos naturales y el\\impacto ambiental.}}
+						}
+				}
+		}
+
+\end{figure}
+\fillandplacepagenumber
+\end{landscape}
+
+\begin{landscape}
+
+
+\begin{figure}[ht!]
+\vspace{2.5cm}
+	\schema {\schemabox{Entorno\\microeconómico}} 
+		{
+			\schema {\schemabox{Competidores}}
+				{
+					{\schemabox{Empresas que operan en el mismo mercado y ofrecen productos o servicios similares.}}
+				}
+			\vspace{0.5cm}
+			\schema {\schemabox{Clientes}}
+				{
+					{\schemabox{Personas o empresas que compran los productos o servicios de la empresa.}}
+				}
+			\vspace{0.5cm}
+			\schema {\schemabox{Proveedores}}
+				{
+					{\schemabox{Empresas o individuos que suministran materias primas, insumos o servicios a la empresa.}}
+				}
+			\vspace{0.5cm}
+			\schema {\schemabox{Público}}
+				{
+					{\schemabox{Los consumidores, la comunidad y otros grupos de interés que pueden afectar o ser afectados por la empresa.}}
+				}
+			\vspace{0.5cm}
+			\schema {\schemabox{Distribuidores}}
+				{
+					{\schemabox{Empresas o intermediarios que ayudan a llevar los productos de la empresa al mercado.}}
+				}
+			\vspace{0.5cm}
+			\schema {\schemabox{Trabajadores}}
+				{
+					{\schemabox{Los empleados de la empresa y sus habilidades, actitudes y productividad.}}
+				}
+			\vspace{0.5cm}
+			\schema {\schemabox{Demanda}}
+				{
+					{\schemabox{La cantidad de productos o servicios que los clientes desean y están dispuestos a comprar.}}
+				}
+			\vspace{0.5cm}
+			\schema {\schemabox{Calidad}}
+				{
+					{\schemabox{La capacidad de los proveedores para proporcionar los insumos necesarios y su estado óptimo para su uso.}}
+				}
+			\vspace{0.5cm}
+			\schema {\schemabox{Cadena de distribución}}
+				{
+					{\schemabox{La red de intermediarios y métodos utilizados para llevar los productos al mercado y al cliente.}}
+				}
+
+		}
+
+\end{figure}
+\fillandplacepagenumber
+\end{landscape}
+
+\section*{Conclusiones de equipo}
+
+\vspace{1cm}
+
+\begin{quotation}
+	La planeación financiera es una parte crucial de la gestión empresarial que involucra la proyección y administración de los recursos financieros de una empresa. Sin embargo, no tener en cuenta los entornos macroeconómicos y microeconómicos puede tener graves consecuencias en la salud financiera y el éxito a largo plazo de una organización.\par
+
+	\vspace{0.5cm}
+
+	Primero, uno de los principales problemas de no considerar los entornos macroeconómicos en la planeación financiera es la vulnerabilidad a los cambios económicos externos. Si una empresa no monitorea las tendencias macroeconómicas, como el PIB, la inflación o las tasas de interés, puede verse sorprendida por situaciones adversas. Por ejemplo, una recesión económica puede afectar negativamente la demanda de productos o servicios, lo que podría llevar a una disminución en los ingresos y beneficios. Esta falta de anticipación puede hacer que la empresa no esté preparada para tomar medidas proactivas, como reducir costos o ajustar su estrategia de precios.\par
+
+	\vspace{0.5cm}
+
+	Por otra parte, el entorno microeconómico de una empresa, que incluye factores como la competencia, los clientes y los proveedores, también es crítico en la planeación financiera. No evaluar adecuadamente estos factores puede llevar a una pérdida de competitividad en el mercado. Por ejemplo, si una empresa ignora a sus competidores y no se adapta a los cambios en las preferencias del cliente, podría perder cuota de mercado. Además, no considerar a los proveedores y la calidad de los insumos puede afectar la eficiencia y la calidad de los productos o servicios ofrecidos. En última instancia, esto podría llevar a una disminución de los ingresos y la rentabilidad.\par
+
+	\vspace{0.5cm}
+
+	Así, la falta de consideración de los entornos macroeconómicos y microeconómicos en la planeación financiera puede llevar a una falta de sostenibilidad y adaptación a largo plazo. Las empresas que no están atentas a las tendencias y cambios económicos pueden quedarse atrás en un entorno empresarial en constante evolución. Esto puede resultar en una pérdida de oportunidades y en la incapacidad de ajustarse a nuevas condiciones del mercado. La adaptación es esencial para la supervivencia y el crecimiento continuo de una empresa, y no considerar estos entornos puede poner en peligro esa capacidad de adaptación.\par
+
+	\vspace{0.5cm}
+
+	En resumen, la falta de valoración de los entornos macroeconómicos y microeconómicos en la planeación financiera puede tener graves consecuencias para una empresa. Estas incluyen vulnerabilidad a cambios económicos, riesgo de pérdida de competitividad y una falta de sostenibilidad a largo plazo. Es esencial que las empresas integren un análisis detenido de estos entornos en su proceso de toma de decisiones financieras para mantenerse competitivas y resilientes en un mundo empresarial dinámico y desafiante.
+\end{quotation}
+
+
+\end{document}

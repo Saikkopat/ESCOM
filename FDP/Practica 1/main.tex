@@ -1,0 +1,272 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage[document]{ragged2e}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\renewcommand{\shorthandsspanish}{}
+\usepackage{xurl}
+
+\usepackage{listings}
+
+\begin{document}
+
+\begin{titlepage}
+	\begin{tikzpicture}[overlay, remember picture]
+		\path (current page.north east) ++(-0.3,-1.5) node[below left] {\includegraphics[width=0.4\textwidth]{/home/saikkopat/Documents/LOGOS IPN/EscudoESCOM}};
+	\end{tikzpicture}
+	\begin{tikzpicture}[overlay, remember picture]
+		\path (current page.north west) ++(1.5,-1) node[below right] {\includegraphics[width=0.23\textwidth]{/home/saikkopat/Documents/LOGOS IPN/logo}};
+	\end{tikzpicture}
+	\begin{center}
+		\vspace{-3cm}
+		{\LARGE Instituto Politécnico Nacional\par}
+		{\Large Escuela Superior de Cómputo\par}
+		\vspace{7cm}
+		{\scshape\Huge Reporte de práctica 1\par}
+		{\itshape\Large Introducción al entorno de trabajo\par}
+		\vfill
+		{\Large Alumno: González Cárdenas Ángel Aquilez\par}
+		\vspace{1cm}
+		{\Large Grupo: 1CM8}
+		\vfill
+		{\Large Realizada el 6 de septiembre del 2022 \par}
+	\end{center}
+\end{titlepage} 
+
+\newpage
+
+\textbf{\Large Objetivos}\par
+
+\begin{enumerate}
+	\item Observar y practicar la edición, compilación y ejecución de programas en el lenguaje de programación C.
+	\item Introducción al entorno de trabajo Dev C++\textregistered para la edición y compilación de programas.
+\end{enumerate}
+
+\vspace{1cm}
+
+\textbf{\Large Introducción}\\
+\vspace{0.5cm}
+El lenguaje de programación C fue creado en durante los años 70, entre 1972 y 1973, como un lenguaje para la implementación del sistema operativo Unix, cuyo desarrollo se encontraba en paralelo.
+Creado por Dennis Ritchie en los laboratorios Bell de AT\&T, su desarrollo se encuentra profundamente ligado a los lenguajes B (desarrollado por Ken Thompson) y BCPL (desarrollado por Martin Richards), así como al sistema operativo Multics. Derivado de las limitaciones y problemáticas que presentaba Multics, Unix y C cubren la necesidad de un sistema operativo que superen las limitaciones de sus antecesores, e introducen nuevas características que fueron posible gracias a la reimplementación de Unix en el propio lenguaje C.
+Gracias a la estandarización del lenguaje (conocido como \emph{ANSI C}) y la posterior portabilidad conseguida a finales de 1970, es como C se posiciona como uno de los lenguajes dominantes para la creación de toda clase de proyectos en toda clase de arquitecturas.
+(Ritchie, 1993).\\
+En 1983, el Instituto Nacional para la Estandarización (\emph{ANSI}, por sus siglas en inglés) de los Estados Unidos, estableció un comité para conseguir una definición moderna y comprensiva del lenguaje C dando como resultado el estándar ANSI, o \emph{ANSI C}, completado en 1988 (Kernighan, Ritchie, 1988).\\
+Para convertir cualquier programa escrito en el lenguaje C, es necesario un \emph{compilador} que traduzca las instrucciones escritas a instrucciones entendibles para la computadora, por lo cual utilizaremos el compilador GCC\textregistered para verificar que cualquiera de los programas a realizar funcione adecuadamente.\\
+GCC (\emph{GNU Compiler Collection}, por sus siglas en inglés), es un compilador producido por el Proyecto GNU, presentado por primera vez por Richard Stallman en 1987 con su versión 1.0 que sólo admitía lenguaje C. Años más tarde, se agregaría compatibilidad con más lenguajes de programación y se extendería a C++.\\
+
+\newpage
+
+\textbf{\Large Desarrollo}\\
+
+\vspace{1cm}
+
+La práctica se dividió en tres partes, cada una con un código correspondiente para compilar, ejecutar y realizar observaciones sobre su comportamiento durante la ejecución.\\
+
+\vspace{1cm}
+
+\textbf{Parte 1}\\
+
+\vspace{1cm}
+
+En principio, tenemos el siguiente código:\\
+
+\vspace{0.5cm}
+
+\begin{lstlisting}
+#include <stdio.h>
+int main(){
+	printf("ViVa Mexico!\n");
+	printf("ViVa Mexico!\t");
+	printf("Prueba");
+	printf("\n");
+	printf("\r ViVa Mexico! ");
+	printf("Prueba");
+	printf("\n");
+	printf("ViVa Mexico! \r");
+	printf("Prueba");
+	printf("\n");
+	printf("ViVa Mexico! \a");
+	printf("Prueba");
+	printf("\n");
+	printf("ViVa Mexico! \\");
+	printf("\n");
+	printf("\\ViVa Mexico! \\\n");
+	printf("\'ViVa Mexico!\'\n");
+	printf("\"ViVa Mexico!\"\n");
+	return 0;
+}
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+El cual produce las siguientes salidas al ejecutarlo:\\
+
+\vspace{0.5cm}
+
+\begin{figure}[htp]
+	\centering
+	\includegraphics[width=15cm]{/home/saikkopat/Pictures/img1}
+	\caption{Ejercicio1.c produjo Ejercicio1.exe para su ejecución}
+\end{figure}
+
+\vspace{1cm}
+
+Al ejecutar el programa, el texto generado presenta el siguiente comportamiento:
+En la instrucción de la línea 3, después del mensaje, se salta a la siguiente línea, por lo cual el mensaje de la línea 4 se imprime debajo de él.\\
+En la línea 4, al colocar un texto \verb+Prueba+, se aprecia que después del mensaje, se imprime una tabulación, por lo cual el texto \verb+Prueba+ se imprime con los espacios equivalentes a la tabulación.\\
+En la instrucción de la línea 7, la opción \verb+\r+ regresa el cursor de la impresión al principio de la línea, y como se tienen espacios en el mensaje, se aprecia el espacio sin interactuar de otra forma con el texto \verb+Prueba+, sin embargo, en la línea 10, como el \verb+\r+ se encuentra al final del mensaje, el texto \verb+Prueba+ se imprime al principio de la línea, reemplazando el mensaje sobre lo que previamente se imprimió.\\
+En la línea 13, se encuentra el operador \verb+\a+ al final del texto, por lo cual se apreció un sonido de alerta. Este operador no interactúa con los siguientes mensajes por lo cual el mensaje \verb+Prueba+ de la línea 14 se imprimió inmediatamente después sin alteraciones.
+Finalmente, las interacciones del carácter \verb+\+ y las comillas simples y dobles con la impresión de mensajes se aprecia en las siguientes líneas.\\
+En la línea 16, se imprime solo un carácter \verb+\+, ya que el operador \verb+\\+ lo imprimió. De igual forma, en la línea 18, el operador se encuentra al principio y al final del mensaje, imprimiendo el mismo carácter.\\
+De forma similar, como la impresión de mensajes se controla mediante comillas simples o dobles, para la impresión de estas, es necesario colocar los operadores correspondientes \verb+\'+ y \verb+\"+, volviéndose evidente su comportamiento en la impresión de mensajes.
+\vspace{0.5cm}
+
+
+\vspace{1cm}
+
+\textbf{Parte 2}\\
+
+\vspace{1cm}
+
+Para la segunda parte, se tiene el siguiente código:
+
+
+\vspace{0.5cm}
+
+\begin{lstlisting}
+#include <stdlib.h>
+#include <stdio.h>
+int main(){
+	int bol;
+	float cal1, cal2, cal3, cal4, cal5, cal6, Prom;
+	printf("Introduce el numero de Boleta: ");
+	scanf("%d", &bol);
+	printf("Introduce la calificacion de Matematicas: ");
+	scanf("%f", &cal1);
+	printf("Introduce la calificacion Espanol: ");
+	scanf("%f", &cal2);
+	printf("Introduce la calificacion de Biologia: ");
+	scanf("%f", &cal3);
+	printf("Introduce la calificacion de Historia: ");
+	scanf("%f", &cal4);
+	printf("Introduce la calificacion de taller de LR: ");
+	scanf("%f", &cal5);
+	printf("Introduce la calificacion de Geografia: ");
+	scanf("%f", &cal6);
+	Prom = (cal1 + cal2 + cal3 + cal4 + cal5) / 6;
+	printf("Numero de Boleta: %d\n", bol);
+	printf("El promedio es: %f.\n", Prom);
+	system("pause");
+	return 0;
+}
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+Como este programa nos solicita la introducción de información para su ejecución, se introdujo lo siguiente: 10, 8, 9, 7, 8, 9.\\
+
+\vspace{0.5cm}
+
+\begin{figure}[htp]
+	\centering
+	\includegraphics[width=13cm]{/home/saikkopat/Pictures/img2}
+	\caption{Programa que nos solicita calificaciones para calcular el promedio}
+\end{figure}
+
+\vspace{0.5cm}
+
+Para este segundo programa, se analizó su comportamiento al eliminar la librería \verb+stdlib.h+, provocando la siguiente salida al ejecutarse en una terminal de un sistema operativo tipo \emph{GNU/Linux}:\\
+
+\vspace{0.5cm}
+
+\begin{figure}[H]
+	\includegraphics[width=13cm]{/home/saikkopat/Pictures/img3}
+	\caption{La instrucción no puede ser ejecutada al ser una arquitectura diferente}
+\end{figure}
+
+\vspace{0.5cm}
+
+La ejecución del programa genera el mensaje\\ \verb+sh: line 1: pause: command not found+\\ debido a que la instrucción \verb+pause+ es exclusiva de sistemas operativos tipo Windows\textregistered.\\
+
+\verb+system+ es una función que se utiliza para ejecutar comandos en la terminal del sistema, por lo cual debe considerarse las diferentes instrucciones correspondientes a cada sistema operativo.\\
+Nótese que al eliminar la librería \verb+stdlib.h+, la compilación no se detiene, pero la ejecución sí.\\
+
+Por último, al colocar la instrucción \verb+Printf+ en lugar de \verb+printf+ en alguna instrucción, se obtuvo la siguiente salida:\\
+
+\vspace{0.5cm}
+
+\begin{figure}[htp]
+	\includegraphics[width=13cm]{/home/saikkopat/Pictures/img4}
+	\caption{La compilación no es posible}
+\end{figure}
+
+\vspace{0.5cm}
+
+Esto se debe a que la referencia a la instrucción \verb+printf+ no es correcta, ya que esta se encuentra en la librería \verb+stdio.h+, por lo cual es obligatorio que se encuentre correctamente escrita para ser utilizada.\\
+
+\newpage
+
+\textbf{Parte 3}\\
+
+\vspace{0.3cm}
+
+Finalmente, realizaremos un programa que genere la serie de Fibonacci, donde cada número de la serie es producto de los dos que le preceden. El código generado es el siguiente:\\
+
+\vspace{0.3cm}
+
+\begin{lstlisting}
+#include <stdio.h>
+int main() {
+	int fn, f1, f2, r;
+	f1 = 0;
+	f2 = 1;
+	printf("Fibonacci: ");
+	scanf("%d", &fn);
+	for(int i=0; i<=fn; i++){
+		printf("%d, ", f1);
+		r = f1 + f2;
+		f1 = f2;
+		f2 = r;
+	}
+	printf("\n");
+}	
+\end{lstlisting}
+
+\vspace{0.2cm}
+
+El código nos solicita el número de ciclos hasta los cuales la serie de Fibonacci se generará, su comportamiento se aprecia en la salida que se genera:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=11cm]{/home/saikkopat/Pictures/img5}
+	\caption{Diferentes salidas de la serie de Fibonacci}
+\end{figure}
+
+\newpage
+
+\textbf{Conclusiones}\\
+
+\vspace{0.5cm}
+
+Tras finalizar la práctica, podemos concluir lo siguiente: 
+
+\begin{enumerate}
+	\item Se lograron los objetivos de la práctica satisfactoriamente.
+	\item El comportamiento de la ejecución de los programas compilados en diferentes sistemas operativos puede producir incompatibilidades que generan la detención de la ejecución de manera súbita.
+	\item Las instrucciones provenientes de librerías deben escribirse correctamente para ser utilizadas.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\textbf{Bibliografía}
+
+\begin{enumerate}
+	\item Kernighan, B. W., \& Ritchie, D. M. (1988). C Programming Language (2a ed.). Prentice Hall.
+	\item Stallman, Richard (s/f). About the GNU project - GNU project - free software foundation. Gnu.org. Recuperado el 11 de septiembre de 2022, de \url{https://www.gnu.org/gnu/thegnuproject.html}
+	\item Wikipedia contributors. (2022, julio 24). GNU Compiler Collection. Wikipedia, The Free Encyclopedia. \url{https://en.wikipedia.org/w/index.php?title=GNU_Compiler_Collection&oldid=1100096189}
+\end{enumerate}
+
+\end{document}

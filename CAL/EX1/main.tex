@@ -1,0 +1,386 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage[document]{ragged2e}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\renewcommand{\shorthandsspanish}{}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\usepackage{xparse}
+\usepackage{dsfont}
+
+\graphicspath{ {/home/saikkopat/Documents/school/CAL/EX1/} }
+
+\NewDocumentCommand{\INTERVALINNARDS}{ m m }{
+    #1 {,} #2
+}
+\NewDocumentCommand{\interval}{ s m >{\SplitArgument{1}{,}}m m o }{
+    \IfBooleanTF{#1}{
+        \left#2 \INTERVALINNARDS #3 \right#4
+    }{
+        \IfValueTF{#5}{
+            #5{#2} \INTERVALINNARDS #3 #5{#4}
+        }{
+            #2 \INTERVALINNARDS #3 #4
+        }
+    }
+}
+
+\geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+
+\begin{document}
+
+\begin{center}
+\Huge{Corrección del primer examen de Cálculo}\\
+\vspace{0.5cm}
+\Large{González Cárdenas Ángel Aquilez} \\
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{enumerate}
+
+\item ¿Qué valor de $x$ corresponde la solución de la inecuación $\mid 2x + 5 \mid \leq \mid x-3 \mid$? \\
+
+Por la caracterización del valor absoluto tenemos que
+
+\[
+	\sqrt{(2x+5)^2} \leq \sqrt{(x-3)^2}
+\]
+Luego, elevando al cuadrado ambos miembros de la desigualdad
+
+\[
+	(2x+5)^2 \leq (x-3)^2
+\]
+
+Desarrollando los binomios tenemos
+
+\vspace{-0.5cm}
+
+\begin{align*}
+	4x^2 +20x +25 \leq x^2 -6x +9 \\
+	3x^2 +26x +16 \leq 0 \\
+	3x^2 +24x +2x +16 \leq 0 \\
+	3x(x + 8) + 2(x + 8) \leq 0 \\
+	(3x + 2)(x + 8) \leq 0
+\end{align*}
+
+De donde, obteniendo los puntos críticos tenemos
+
+\begin{align*}
+	3x+2 = 0 \implies x = -\frac{2}{3} \\
+	x+8 = 0 \implies x = -8
+\end{align*}
+
+Luego, con los intervalos
+
+\[  \interval({-\infty,-8}] \text{,} \interval[{-8, -\frac{2}{3}}] \text{,} \interval[{-\frac{2}{3},\infty}) \]
+
+
+\bgroup
+\def\arraystretch{1.5}%
+\begin{table}[ht!]
+\begin{center}
+\begin{tabular}{ c | c  c  c }
+		& $\interval({-\infty,-8}]$ & $\interval[{-8, -\frac{2}{3}}]$ & $\interval[{-\frac{2}{3},\infty})$ \\ [0.5ex]
+	& $x=-9$ & $x=-4$ 	& $x=0$ \\ 	\hline
+	$x+8$ & - & + & + \\
+	$3x+2$ & - & - & + \\
+	$(x+8)(3x+2)\leq 0$ & + & - & + \\ 
+\end{tabular}
+\end{center}
+\end{table}
+
+
+Por lo tanto, la solución para la desigualdad $\mid 2x + 5 \mid \leq \mid x-3 \mid$ es el intervalo \\
+
+\[ \interval[{-8,-\frac{2}{3}}] = \{ x \in \mathds{R} \mid -8 \leq x \leq -\frac{2}{3} \} \]
+
+
+\item Con $a,b \in \mathds{R}$, demuestre que si $0<a<b$ entonces $a<\sqrt{ab}<\dfrac{a+b}{2}<b$.\\
+
+\vspace{0.5cm}
+
+De $0<a<b \implies a<b$ con $a>0$, luego
+
+\[ a^2 < ab \implies \sqrt{a^2} < \sqrt{ab}\]
+del cual
+
+\begin{equation}
+	a < \sqrt{ab}
+\end{equation}
+
+Por otra parte, para $\sqrt{ab}<\dfrac{a+b}{2}$, partiendo de
+
+\begin{align*}
+0<a<b \implies & a<b 
+\\ & 0<b-a 
+\\ & 0<(b-a)^2 
+\\ & 0<b^2 -2ab + a^2
+\\ & 2ab< b^2 + a^2
+\\ & 4ab< b^2 + a^2 + 2ab
+\\ & 4ab < (b+a)^2
+\\ & \sqrt{4ab} < \sqrt{(b+a)^2}
+\end{align*}
+Como $a>0$ y $b>0$
+\[2\sqrt{ab} < a+b\]
+\begin{equation}
+\sqrt{ab} < \frac{a+b}{2}
+\end{equation}
+
+Luego, para $\frac{a+b}{2} <b$, de $0<a<b$
+\[a<b \implies a+b < 2b\]
+\begin{equation}
+ \frac{a+b}{2} < b
+\end{equation}
+
+
+Finalmente, por la \emph{propiedad transitiva}, de (1), (2), (3) tenemos:
+
+\[ a<\sqrt{ab}<\frac{a+b}{2}<b \]
+
+\newpage
+
+\item De $f(x) = \mid x^2 - 1 \mid; g(x) = \mid x - 1\mid$, obtenga la función resultante y dominio en $(f-g)(x)$, $(f \cdot g)(x)$, $(\dfrac{f}{g})(x)$ y $(f \circ g)(x)$.
+
+\vspace{0.5cm}
+
+De
+
+\[
+f(x) = \mid x^2 -1 \mid = 
+	\begin{cases}	
+		x^2-1 & \text{ si } x \leq -1 \text{ o } x\geq 1 \\
+		1-x^2 & \text{ si } -1 < x < 1
+	\end{cases}
+\]
+
+y
+
+\[
+g(x) = \mid x -1 \mid = 
+	\begin{cases}	
+		x-1 & \text{ si } x \geq 1 \\
+		1-x & \text{ si } x < 1
+	\end{cases}
+\]
+
+Para
+
+\[
+(f-g)(x) = 
+	\begin{cases}	
+		x^2 +x -2 & \text{ si } x \leq -1 \\
+		x - x^2 & \text{ si } -1 < x < 1 \\
+		x^2 - x & \text{ si } x \geq 1
+	\end{cases}
+\]
+con \emph{D}$\{ (f-g)(x) \} = \mathds{R} $.\\
+
+Luego, para
+
+\[
+(f \cdot g)(x) = 
+	\begin{cases}	
+		-x^3 + x^2 +x -1 & \text{ si } x \leq -1 \\
+		x^3 - x^2 - x + 1 & \text{ si } x > -1
+	\end{cases}
+\]
+con \emph{D}$\{ (f \cdot g)(x) \} = \mathds{R} $.\\
+
+Por otra parte, para $(\dfrac{f}{g})(x) \implies g(x) \neq 0 \implies x \neq 1$, así
+
+\[
+(\dfrac{f}{g})(x) = 
+	\begin{cases}	
+		-x -1 & \text{ si } x \leq -1 \\
+		x + 1 & \text{ si } x > -1
+	\end{cases}
+\]
+
+con \emph{D}$\{ \dfrac{f}{g})(x) \} = \mathds{R} $.\\
+
+Finalmente, para 
+\begin{align*}
+(f \circ g)(x)
+& = f(g(x))
+\\ & = f(\sqrt{(x-1)^2} -1)
+\\ &  = \mid (\sqrt{(x-1)^2})^2 -1\mid
+\end{align*}
+
+que por la caracterización del valor absoluto se tiene que\\
+
+\[ \mid (x-1)^2 -1\mid = \mid x^2 -2x \mid\]
+
+con \emph{D}$\{ (f \circ g)(x) \} = \mathds{R} $.\\
+
+
+\newpage
+
+
+\item Determine de forma analítica toda la información de $f(x) = \dfrac{x}{\sqrt{x^2 -9}}$ que incorpore dominio , simetría, $f^-1(x)$, punto de intersección en los ejes y asíntotas si existen. Confirme sus conclusión y bosqueje la función en una gráfica.\\
+\vspace{0.5cm}
+
+Como $\sqrt{x^2 - 9} > 0 \implies x^2 -9 >0 \implies \mid x \mid >3$
+de donde 
+\[\mid x \mid >3 \iff x<-3 \text{ o } x>3\]
+con \emph{D}$\{ (f(x) \} = \interval({-\infty,-3}) \cup \interval({3,\infty}) $.\\
+\vspace{0.5cm}
+Con $x = -3$ y $x=3$ se tienen \emph{asíntotas verticales}.
+\vspace{0.5cm}
+
+Para 	
+
+\[
+	\lim_{x \to -3^-} f(x) = \lim_{x \to -3^-} \frac{x}{\sqrt{x^2 -9}} = \frac{-3}{0^+} = -\infty
+\]
+
+y
+
+\[
+	\lim_{x \to 3^+} f(x) = \lim_{x \to 3^-} \frac{x}{\sqrt{x^2 -9}} = \frac{3}{0^+} = \infty
+\]
+Para la simetría, con $x=-x \implies $\\
+
+\[
+	f(-x) = \frac{-x}{\sqrt{(-x^2) -9}} = -\frac{x}{\sqrt{x^2 -9}} = -f(x)
+\]
+
+Por lo tanto, $f(x)$ es \emph{impar}.\\
+
+Por otro lado, para $f^-1(x)$, haciendo
+
+\[x = f^-1 (y) \iff y = f(x)\]
+
+de donde 
+
+\begin{align*}
+y = \frac{x}{\sqrt{x^2 -9}} \implies & y^2 = \frac{x^2}{x^2 -9}
+\\ & y^2 (x^2 -9) = x^2
+\\ & y^2 x^2 - x^2 = 9y^2
+\\ & x^2 (y^2 +1)  = 9y^2
+\\ & x^2 = \frac{9y^2}{y^2 -1}\\
+\implies  f^-1 (y) = x = \frac{3y}{\sqrt{y^2 -1}} \\
+ f^-1(x) = \frac{3x}{\sqrt{x^2 -1}}
+\end{align*}
+
+Luego, para $x=0 \implies y = \dfrac{0}{\sqrt{0 - 9}} \notin \mathds{R}$, $f(x)$ no intersecta al eje \emph{Y}.\\
+
+Así mismo, haciendo $0 = \dfrac{x}{\sqrt{x^2 -9}} \notin \mathds{R}$, $f(x)$ no intersecta al eje \emph{X}.\\
+
+Luego, para las asíntotas horizontales tenemos que\\
+
+\begin{align*}
+\lim_{x \to +\infty} f(x) = & \lim_{x \to +\infty} \frac{x}{\sqrt{x^2 -9}} = \lim_{x \to +\infty} \frac{x}{\sqrt{x^2(1 -\frac{9}{x^2})}}
+\\ &  \lim_{x \to +\infty} \frac{x}{\mid x \mid \sqrt{1 - \frac{9}{x^2}}} = \lim_{x \to +\infty} \frac{1}{\sqrt{1 - \frac{9}{x^2}}}
+\\ & \frac{1}{1} = 1
+\end{align*}
+
+y
+
+\[
+	\lim_{x \to -\infty} f(x) = \lim_{x \to -\infty} \frac{-1}{\sqrt{1 - \frac{9}{x^2}}} = -1
+\]
+
+Por lo tanto, $f(x)$ tiene dos asíntotas horizontales en $y = 1$ y $y = -1$.
+
+De la siguiente gráfica se comprueba lo anterior:\\
+\vspace{1cm}
+
+\pgfplotsset{every axis/.append style={
+font=\small,
+thin,
+tick style={ultra thin}}}
+\begin{tikzpicture}
+\centering
+\begin{axis}[
+		width=1\textwidth,
+    height=1\textwidth,
+    axis lines = center,
+    xlabel = $x$,
+    ylabel = {$y$},
+    xmax = {10},
+    xmin = {-10},
+    ymax = {10},
+    ymin = {-10},
+    xtick={-8,-6,-4,-2, 2,4,6,8},
+    ytick={-8, -6, -4, -2, 2, 4, 6, 8}
+]
+\addplot [
+    domain=-10:-3,
+    samples=3000,
+    color=red, smooth
+]
+{(x)/(sqrt(x^2 - 9))};
+
+\addplot [
+    domain=3:10,
+    samples=3000,
+    color=red,
+]
+{(x)/(sqrt(x^2 - 9))};
+
+\addplot[black,dashed,domain = -10:10,samples = 2] {-1};
+\addplot[black,dashed,domain = -10:10,samples = 2] {1};
+
+% Vertical asymptotes at -3 and 3
+\draw[dashed] ({axis cs:-3,0}|-{rel axis cs:0,0}) -- ({axis cs:-3,0}|-{rel axis cs:0,1});
+\draw[dashed] ({axis cs:3,0}|-{rel axis cs:0,0}) -- ({axis cs:3,0}|-{rel axis cs:0,1});
+% Horizontal asymptotes at -1 and 1
+%
+\end{axis}
+\end{tikzpicture}
+
+
+\newpage
+
+\item Calcule el valor de $\lim\limits_{x \to -3} \sqrt{\dfrac{y^2 -9}{2y^2 +7y +3}}$ usando álgebra preliminar y técnicas de limites.\\
+\vspace{0.5cm}
+
+Factorizando tenemos que
+
+\begin{align*}
+\lim_{x \to -3} \sqrt{\frac{y^2 -9}{2y^2 +7y +3}} = & \lim_{x \to -3} \sqrt{\frac{(y+3)(y-3)}{(y+3)(2y+1)}} 
+\\ & = \lim_{x \to -3} \sqrt{\frac{y-3}{2y+1}}
+\\ & = \sqrt{\frac{6}{5}} = \sqrt{\frac{30}{5}}
+\end{align*}
+
+\item Calcule el valor de $\lim\limits_{x \to 0} (\dfrac{\csc 2x}{\cot 2x} + \dfrac{\sin 3x}{3x^2 +2x}) $ usando álgebra preliminar y técnicas de limites.\\
+
+\vspace{0.5cm}
+
+Haciendo
+
+\begin{align*}
+\lim_{x \to 0} (\frac{\csc 2x}{\cot 2x} + \frac{\sin 2x}{3x^2 +2x}) & = \lim_{x \to 0} \frac{\csc 2x}{\cot 2x} + \lim_{x \to 0} \frac{\sin 3x}{3x^2 +2x}
+\\ & = \lim_{x \to 0} \dfrac{\dfrac{1}{\sin 2x}}{\dfrac{\cos 2x}{\sin 2x}} + \lim_{x \to 0} \frac{\sin 3x}{3x(x+ \frac{2}{3})}
+\end{align*}
+
+Como \[\lim_{x \to 0} \dfrac{\sin x}{x} = 1\]
+
+\[\lim_{x \to 0} \frac{1}{\cos x} + \lim_{x \to 0} \frac{1}{x+ \frac{2}{3}}\]
+
+Luego, evaluando el limite 
+
+\[
+	1 + \frac{3}{2} = \frac{5}{2}
+\]
+
+
+
+\end{enumerate}
+
+
+
+
+
+\end{document}

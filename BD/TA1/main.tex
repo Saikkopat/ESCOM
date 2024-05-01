@@ -1,0 +1,98 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage[document]{ragged2e}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\renewcommand{\shorthandsspanish}{}
+\usepackage{xurl}
+
+\usepackage{listings}
+
+\begin{document}
+
+\begin{titlepage}
+	\begin{tikzpicture}[overlay, remember picture]
+		\path (current page.north east) ++(-0.3,-1.5) node[below left] {\includegraphics[width=0.4\textwidth]{/home/saikkopat/Documents/LOGOS IPN/EscudoESCOM}};
+	\end{tikzpicture}
+	\begin{tikzpicture}[overlay, remember picture]
+		\path (current page.north west) ++(1.5,-1) node[below right] {\includegraphics[width=0.23\textwidth]{/home/saikkopat/Documents/LOGOS IPN/logo}};
+	\end{tikzpicture}
+	\begin{center}
+		\vspace{-3cm}
+		{\LARGE Instituto Politécnico Nacional\par}
+		{\Large Escuela Superior de Cómputo\par}
+		\vspace{7cm}
+		{\scshape\Huge Tarea A1\par}
+		{\itshape\Large Bases de Datos vs Archivos\par}
+		\vfill
+		{\Large Alumno: González Cárdenas Ángel Aquilez\par}
+		\vspace{1cm}
+		{\Large Boleta: 2016630152\par}
+		\vspace{1cm}
+		{\Large Grupo: 3CV1\par}
+		\vspace{1cm}
+		{\Large Profesor: Blanco Almazán Iván Eduardo\par}
+		\vfill
+	\end{center}
+\end{titlepage} 
+
+\newpage
+
+\textbf{\Large Introducción}\\
+\vspace{0.5cm}
+
+Durante finales de los años 60 y principios de los 70, el uso de discos duros para el almacenamiento de datos permitió la creación de modelos de datos jerárquicos y en red, al volver opcional el orden de almacenamiento de los datos derivado del uso de cintas de banda magnética y tarjetas perforadas en años anteriores. Así, estructuras de datos como listas y árboles podían ser almacenadas y reutilizadas.
+\\
+Con la creación del modelo relacional por \emph{Edgar Codd} en 1970, las bases de datos relacionales aparecieron, pero no fueron adoptadas por la industria debido a problemas de eficiencia respecto a las existentes bases de datos que implementaban modelos jerárquicos y en red.\\
+Gracias a los proyectos System R, de IBM Research, e Ingres system, de la Universidad de California en Berkeley, se desarrolló SQL/DS, el primer producto en introducir el modelo relacional de forma funcional. Poco después aparecen los primeros sistemas comerciales de este tipo: la primera versión de Oracle, IBM DB2 y DEC Rdb.\\
+
+\newpage
+
+\textbf{\Large Ventajas y desventajas}\\
+
+\vspace{1cm}
+
+Una de las principales ventajas que las bases de datos y los sistemas que las gestionan sobre el almacenamiento en archivos se encuentra en el diseño y arquitectura de los sistemas gestores de bases de datos, ya que estos ocultan detalles de la implementación física y lógica de los datos gracias al \emph{gestor de almacenamiento}.
+\\
+Un gestor de almacenamiento es un componente de un sistema gestor de base de datos que provee una interfaz entre los programas que manipulan datos, los datos a nivel físico y lógico, y las operaciones que la base de datos ejecuta sobre estos. A su vez, el gestor de almacenamiento interactúa con el gestor de archivos del sistema operativo, ya que los datos son almacenados en una unidad de almacenamiento para ejecutar operaciones sobre estos, como la creación, consulta y actualización en la base de datos que se traduce en manipulación de archivos.\\
+
+Gracias a estas características, los gestores de almacenamiento permiten:\\
+
+\begin{enumerate}
+	\item\emph{Gestión de autorización e integridad}, que verifica la integridad de los datos almacenados y los permisos de los diferentes usuarios para el acceso a estos.
+	\item\emph{Gestor de transacciones}, , que se asegura del correcto funcionamiento de la base de datos a pesar de fallos del sistema o del entorno donde se ejecute, y de la correcta ejecución de las operaciones en los datos.
+	\item\emph{Gestor de memoria intermedia (buffer)}, que se encarga de cargar los datos del medio de almacenamiento donde se encuentren a la memoria principal (por ejemplo, de un disco duro a la memoria RAM), también decide que datos y en qué momento cargarlos, permitiendo trabajar con volúmenes de datos que rebasan la memoria principal.
+\end{enumerate}
+
+Por otra parte, el almacenamiento con archivos lo encontramos con casi cualquier sistema operativo, el cual almacena informacion en varios archivos, que son manipulados por diferentes programas que componen al sistema operativo.\\
+
+
+Entre sus principales desventajas podemos encontrar:\\
+\begin{enumerate}
+		\item\emph{Redundancía e inconsistencia}, que se transforma en una mayor cantidad de espacio de almacenamiento y corrupción de datos.
+		\item\emph{Dificultad para accesar a los datos}, al no categorizar la información, no es posible computar datos de manera óptima.
+		\item\emph{Aislamiento de datos}, al permitir varios formatos y tipos de archivos, la creación de programas que contemplen todos los tipos de archivos aumenta su dificultad durante el desarrollo.
+		\item\emph{Problemas de seguridad}, un sistema operativo por lo general solo contempla los roles de administrador y usuario, que si bien restringe la manipulación de datos, no necesariamente prohibe la lectura de determinado tipo de archivos.
+\end{enumerate}
+
+Por último, otra ventaja que tiene la implementación de una base de datos para el almacenamiento de datos sobre archivos se encuentra en las principales estructuras de datos que se utilizan para su funcionamiento, como son: \\
+\begin{enumerate}
+\item\emph{Archivo de datos}, que almacenan la base de datos.
+\item\emph{Diccionario de datos}, que almacena datos sobre la base de datos y sus características, como la estructura y el modelo.
+\item\emph{Índices}, que permiten un rápido acceso a los datos.
+\end{enumerate}
+
+Con la implementacion de un indice que apunte hacia diferentes segmentos de datos es como una base de datos supera al almacenamiento de archivos convencional.
+
+\newpage
+
+\textbf{Bibliografía}
+
+\begin{enumerate}
+	\item Silberschatz, A., Korth, H., \& Sudarshan, S. (2019) Database System Concepts (7a ed.). McGraw-Hill.
+\end{enumerate}
+
+\end{document}

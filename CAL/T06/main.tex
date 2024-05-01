@@ -1,0 +1,215 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage[document]{ragged2e}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla]{babel}
+\renewcommand{\shorthandsspanish}{}
+\usepackage{xurl}
+\usepackage{lipsum}
+\usepackage{mwe}
+\usepackage{multicol}
+\usepackage{siunitx}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{tabularray}
+\usepackage{xparse}
+\usepackage{dsfont}
+\usepackage{matlab-prettifier}
+
+\graphicspath{ {/home/saikkopat/Documents/ESCOM/CAL/T03/MATLAB/} }
+
+\NewDocumentCommand{\INTERVALINNARDS}{ m m }{
+    #1 {,} #2
+}
+\NewDocumentCommand{\interval}{ s m >{\SplitArgument{1}{,}}m m o }{
+    \IfBooleanTF{#1}{
+        \left#2 \INTERVALINNARDS #3 \right#4
+    }{
+        \IfValueTF{#5}{
+            #5{#2} \INTERVALINNARDS #3 #5{#4}
+        }{
+            #2 \INTERVALINNARDS #3 #4
+        }
+    }
+}
+
+
+\begin{document}
+
+\begin{titlepage}
+	\begin{tikzpicture}[overlay, remember picture]
+		\path (current page.north east) ++(-0.3,-1.6) node[below left] {\includegraphics[width=0.35\textwidth]{/home/saikkopat/Documents/LOGOS IPN/EscudoESCOM}};
+	\end{tikzpicture}
+	\begin{tikzpicture}[overlay, remember picture]
+		\path (current page.north west) ++(1.5,-1) node[below right] {\includegraphics[width=0.2\textwidth]{/home/saikkopat/Documents/LOGOS IPN/logo}};
+	\end{tikzpicture}
+	\begin{center}
+		\vspace{-1.5cm}
+		{\LARGE Instituto Politécnico Nacional\par}
+		\vspace{.5cm}
+		{\LARGE Escuela Superior de Cómputo\par}
+		\vspace{2.5cm}
+		{\large Unidad de aprendizaje:}\\{\Large Cálculo\par}
+		\vspace{5cm}
+		{\scshape\Huge Tarea 6:\par}
+		{\itshape\Large Definición formal de límite\par}
+		\vfill
+		{\Large Alumno:\par}
+		\vspace{0.7cm}
+		{\Large González Cárdenas Ángel Aquilez\par}
+		\vspace{0.5cm}
+		{\Large Boleta: 2016630152\par}
+		\vspace{0.5cm}
+		{\Large Grupo: 1CV8\par}
+		\vspace{1cm}
+		{\Large Profesor: Jurado Jiménez Roberto\par}
+		\vfill
+	\end{center}
+\end{titlepage} 
+
+\newpage
+
+\section*{Definición formal de límite}
+
+La definición formal de límite, también conocida como la definición de épsilon-delta, es una forma precisa de decir que una función $f(x)$ está cerca de un valor $y$ cuando $x$ se acerca al valor de $x$ que produce la $f(x)$ de intereses, ya que podemos hacer que los valores de $f(x)$ queden dentro de una distancia arbitraria (que llamaremos $\epsilon$) a partir de la $y$, tomando los valores de $x$ dentro de una distancia $\frac{\epsilon}{2}$ de $x$ (con $x$ diferente al valor que produce $y$).
+
+Dicho en otras palabras, dada una función $f$ y un número real $c$, decimos que el límite de $f(x)$ cuando $x$ se aproxima a $c$ es igual a $L$, denotado como 
+
+$\lim_{{x \to c}} f(x) = L$ \\
+
+si para todo número real positivo $\epsilon > 0$, existe un número real positivo $\delta > 0$ tal que para todo $x$ en el dominio de $f$, si la distancia entre $x$ y $c$ es menor que $\delta$ (excluyendo a $c$), entonces la distancia entre $f(x)$ y $L$ es menor que $\epsilon$. En términos matemáticos:
+
+Para todo $\epsilon > 0$, existe un $\delta > 0$ tal que si $0 < |x - c| < \delta$, entonces $|f(x) - L| < \epsilon$.
+
+Esta definición formaliza la idea intuitiva de que a medida que los valores de $x$ se acercan a $c$, los valores correspondientes de la función $f(x)$ se acercan a $L$.\par
+
+
+\subsection*{Límites laterales}
+Las definiciones formales de los límites por la izquierda y por la derecha son extensiones de la definición general de límite:
+
+\begin{enumerate}
+
+
+	\item Límite por la izquierda: Dada una función $f$ y un número real $c$, decimos que el límite de $f(x)$ cuando $x$ se aproxima a $c$ por la izquierda es igual a $L$, denotado como 
+
+		$\lim_{{x \to c^-}} f(x) = L$
+
+		si para todo número real positivo $\epsilon > 0$, existe un número real positivo $\delta > 0$ tal que para todo $x$ en el dominio de $f$, si la distancia entre $x$ y $c$ es menor que $\delta$ (y $x < c$), entonces la distancia entre $f(x)$ y $L$ es menor que $\epsilon$. En términos matemáticos:
+
+		Para todo $\epsilon > 0$, existe un $\delta > 0$ tal que si $0 < c - x < \delta$, entonces $|f(x) - L| < \epsilon$.
+
+	\item Límite por la derecha: Dada una función $f$ y un número real $c$, decimos que el límite de $f(x)$ cuando $x$ se aproxima a $c$ por la derecha es igual a $L$, denotado como 
+
+		$\lim_{{x \to c^+}} f(x) = L$
+
+		si para todo número real positivo $\epsilon > 0$, existe un número real positivo $\delta > 0$ tal que para todo $x$ en el dominio de $f$, si la distancia entre $x$ y $c$ es menor que $\delta$ (y $x > c$), entonces la distancia entre $f(x)$ y $L$ es menor que $\epsilon$. En términos matemáticos:
+
+		Para todo $\epsilon > 0$, existe un $\delta > 0$ tal que si $0 < x - c < \delta$, entonces $|f(x) - L| < \epsilon$.
+\end{enumerate}
+
+Estas definiciones formalizan la idea intuitiva de que a medida que los valores de $x$ se acercan a $c$ desde la izquierda o desde la derecha, los valores correspondientes de la función $f(x)$ se acercan a $L$.
+
+\subsection*{Ejemplos}
+
+\begin{enumerate}
+	\item Queremos demostrar que $\lim_{x\to 3} 2x = 6$ utilizando la definición epsilon-delta.
+
+	Dado $\varepsilon > 0$, debemos encontrar un $\delta > 0$ tal que si $0 < |x - 3| < \delta$, entonces $|2x - 6| < \varepsilon$.
+
+	Tomemos $\delta = \frac{\varepsilon}{2}$. Entonces, si $0 < |x - 3| < \delta$, tenemos:
+
+	\[
+	|2x - 6| = 2|x - 3| < 2\left(\frac{\varepsilon}{2}\right) = \varepsilon.
+	\]
+
+	Por lo tanto, hemos demostrado que $\lim_{x\to 3} 2x = 6$.
+
+	\item Queremos demostrar que $\lim_{x\to 2} x^2 = 4$ utilizando la definición epsilon-delta.
+
+	Dado $\varepsilon > 0$, debemos encontrar un $\delta > 0$ tal que si $0 < |x - 2| < \delta$, entonces $|x^2 - 4| < \varepsilon$.
+
+	Tomemos $\delta = \sqrt{\varepsilon}$. Entonces, si $0 < |x - 2| < \delta$, tenemos:
+
+	\[
+	|x^2 - 4| = |(x - 2)(x + 2)| = |x - 2||x + 2| < \delta|x + 2| < \sqrt{\varepsilon}(2 + \delta) = \varepsilon.
+	\]
+
+	Por lo tanto, hemos demostrado que $\lim_{x\to 2} x^2 = 4$.
+
+	\item Queremos demostrar que $\lim_{x\to 2} \frac{1}{x} = \frac{1}{2}$ utilizando la definición epsilon-delta.
+
+	Dado $\varepsilon > 0$, debemos encontrar un $\delta > 0$ tal que si $0 < |x - 2| < \delta$, entonces $\left|\frac{1}{x} - \frac{1}{2}\right| < \varepsilon$.
+
+	Tomemos $\delta = \frac{1}{2}\varepsilon$. Entonces, si $0 < |x - 2| < \delta$, tenemos:
+
+	\[
+	\left|\frac{1}{x} - \frac{1}{2}\right| = \left|\frac{2 - x}{2x}\right| = \frac{|x - 2|}{2|x|} < \frac{\delta}{2} < \frac{\varepsilon}{2} < \varepsilon.
+	\]
+
+	Por lo tanto, hemos demostrado que $\lim_{x\to 2} \frac{1}{x} = \frac{1}{2}$.
+
+	\item  Queremos demostrar que $\lim_{x\to 4} \sqrt{x} = 2$ utilizando la definición epsilon-delta.
+
+	Dado $\varepsilon > 0$, debemos encontrar un $\delta > 0$ tal que si $0 < |x - 4| < \delta$, entonces $|\sqrt{x} - 2| < \varepsilon$.
+
+	Tomemos $\delta = \varepsilon$. Entonces, si $0 < |x - 4| < \delta$, tenemos:
+
+	\[
+	|\sqrt{x} - 2| = \left|\frac{x - 4}{\sqrt{x} + 2}\right| < \frac{|x - 4|}{2} < \frac{\delta}{2} = \frac{\varepsilon}{2} < \varepsilon.
+	\]
+
+	Por lo tanto, hemos demostrado que $\lim_{x\to 4} \sqrt{x} = 2$.
+
+	\item Queremos demostrar que $\lim_{x\to \frac{\pi}{2}} \sin(x) = 1$ utilizando la definición epsilon-delta.
+
+	Dado $\varepsilon > 0$, debemos encontrar un $\delta > 0$ tal que si $0 < |x - \frac{\pi}{2}| < \delta$, entonces $|\sin(x) - 1| < \varepsilon$.
+
+	Tomemos $\delta = \varepsilon$. Entonces, si $0 < |x - \frac{\pi}{2}| < \delta$, tenemos:
+
+	\[
+	|\sin(x) - 1| = |\sin(x) - \sin\left(\frac{\pi}{2}\right)| = |\sin(x - \frac{\pi}{2})| \leq |x - \frac{\pi}{2}| < \delta = \varepsilon.
+	\]
+
+	Por lo tanto, hemos demostrado que $\lim_{x\to \frac{\pi}{2}} \sin(x) = 1$.
+
+
+\end{enumerate}
+
+
+\section*{Indeterminaciones}
+
+Las indeterminaciones en los límites son situaciones en las que la aplicación directa de las propiedades de los límites no es válida. Aunque una expresión pueda parecer indeterminada, eso no significa que el límite no exista o no se pueda determinar. Aquí están los tipos de indeterminaciones:
+
+\begin{itemize}
+
+\item Indeterminación infinito menos infinito ($\infty - \infty$): Esta indeterminación ocurre cuando estamos restando dos cantidades infinitas. No tiene un valor definido porque depende de cómo se acercan al infinito las dos cantidades que se están restando.
+
+\item Indeterminación número entre cero ($k/0$): Esta indeterminación se obtiene cuando el denominador de una función racional se anula. El resultado puede ser más infinito, menos infinito o el límite de la función puede no existir.
+
+\item Indeterminación cero entre cero ($0/0$): Esta indeterminación es muy común y se obtiene en funciones con fracciones donde tanto el numerador como el denominador se anulan. No tiene un valor definido. A menudo, esta indeterminación se resuelve utilizando técnicas como la regla de L’Hôpital o manipulando algebraicamente la función.
+
+\item Indeterminación infinito entre infinito ($\infty/\infty$): Esta indeterminación ocurre cuando tanto el numerador como el denominador de una fracción tienden al infinito. De manera similar al caso anterior, no tiene un valor definido. A menudo, esta indeterminación se resuelve utilizando técnicas como la regla de L’Hôpital.
+
+\item Indeterminación uno elevado a infinito ($1^\infty$): Esta indeterminación ocurre cuando tenemos una base que tiende a 1 y un exponente que tiende al infinito. No tiene un valor definido. La indeterminación a menudo se resuelve utilizando logaritmos.
+
+\item Indeterminación cero elevado a cero ($0^0$): Esta indeterminación ocurre cuando tanto la base como el exponente tienden a cero. De manera similar a la anterior, no tiene un valor definido. A menudo se resuelve utilizando logaritmos.
+
+\item Indeterminación cero por infinito ($0 \cdot \infty$): Esta indeterminación ocurre cuando estamos multiplicando una cantidad que tiende a cero por una cantidad que tiende al infinito. No tiene un valor definido. Esta indeterminación a menudo se resuelve cambiando la forma de la función, por ejemplo, convirtiendo el producto en una fracción.
+
+\item Indeterminación cero elevado a infinito ($0^\infty$): Esta indeterminación ocurre cuando tenemos una base que tiende a cero y un exponente que tiende al infinito. No tiene un valor definido. Esta indeterminación a menudo se resuelve utilizando logaritmos.
+
+\item Indeterminación infinito elevado a cero ($\infty^0$): Esta indeterminación ocurre cuando tenemos una base que tiende al infinito y un exponente que tiende a cero. No tiene un valor definido. Esta indeterminación a menudo se resuelve utilizando logaritmos.
+\end{itemize}
+
+Para resolver estas indeterminaciones, en general necesitamos manipular la función o aplicar técnicas especiales para poder aplicar las propiedades de los límites. 
+
+
+\end{document}

@@ -1,0 +1,310 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage[document]{ragged2e}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla]{babel}
+\renewcommand{\shorthandsspanish}{}
+\usepackage{xurl}
+\usepackage{lipsum}
+\usepackage{mwe}
+\usepackage{multicol}
+\usepackage{siunitx}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{listings}
+
+\begin{document}
+
+\begin{titlepage}
+	\begin{tikzpicture}[overlay, remember picture]
+		\path (current page.north east) ++(-0.3,-1.5) node[below left] {\includegraphics[width=0.35\textwidth]{/home/saikkopat/Documents/LOGOS IPN/EscudoESCOM}};
+	\end{tikzpicture}
+	\begin{tikzpicture}[overlay, remember picture]
+		\path (current page.north west) ++(1.5,-1) node[below right] {\includegraphics[width=0.2\textwidth]{/home/saikkopat/Documents/LOGOS IPN/logo}};
+	\end{tikzpicture}
+	\begin{center}
+		\vspace{-1.5cm}
+		{\LARGE Instituto Politécnico Nacional\par}
+		\vspace{.5cm}
+		{\LARGE Escuela Superior de Cómputo\par}
+		\vspace{2.5cm}
+		{\large Unidad de aprendizaje:}\\{\Large Fundamentos económicos\par}
+		\vspace{7cm}
+		{\scshape\Huge Actividad 10:\par}
+		{\itshape\Large Máximización de la utilidad y equilibrio del consumidor\par}
+		\vfill
+		{\Large Alumno: González Cárdenas Ángel Aquilez\par}
+		\vspace{1cm}
+		{\Large Boleta: 2016630152\par}
+		\vspace{1cm}
+		{\Large Grupo: 2CV2\par}
+		\vspace{1cm}
+		{\Large Profesora: Villegas Navarrete Sonia\par}
+		\vfill
+	\end{center}
+\end{titlepage} 
+
+\newpage
+
+\textbf{\Large Ejercicio:}\\
+\vspace{0.5cm}
+
+Araceli percibe los siguientes niveles de utilidad total por el consumo de los bienes \emph{A} y \emph{B}. El precio del bien \emph{A} $= \$1.00 $ y del bien \emph{B} $= \$0.5 $ y su \emph{ingreso} es de \$4.00.\par
+
+Se nombra al bien \emph{A} como \textit{Khlav Kalash} y al bien \emph{B} como \textit{Jugo de cangrejo}.\\
+
+Calcular lo siguiente:\\
+
+\begin{enumerate}[label=\alph*)]
+
+\item ¿Cuánto debe de comprar de cada bien con el fin de maximizar su satisfacción total?\\
+	\begin{enumerate}[label=\arabic*.]
+	\item Gastar todo el ingreso disponible
+	\item Igualar la utilidad marginal por unidad monetaria gastada en todos los bienes (\emph{A y B}).
+	\end{enumerate}
+
+\item Graficar la utilidad total y marginal de \emph{A} y \emph{B}.\par
+
+\end{enumerate}
+
+De la Tabla 1 se obtiene la \emph{utilidad marginal} para ambos bienes de la fórmula
+
+\[
+	UM = \frac{\Delta UT_x}{\Delta x} = \frac{UT_{x2} - UT_{x1}}{x_2-x_1}
+\]
+
+De donde, para el \emph{Khlav Kalash} se tiene que:
+
+\begin{align*}
+	UM_{0-1} &= \frac{15 - 0}{1 - 0} = 15 \\
+	UM_{1-2} &= \frac{23 - 15}{2 - 1} = 8 \\
+	UM_{2-3} &= \frac{30 - 23}{3 - 2} = 7 \\
+	UM_{3-4} &= \frac{34 - 30}{4 - 3} = 4 \\
+	UM_{4-5} &= \frac{36 - 34}{5 - 4} = 2 \\
+	UM_{5-6} &= \frac{37 - 36}{6 - 5} = 1
+\end{align*}
+
+Y para el \emph{Jugo de cangrejo}:
+
+\begin{align*}
+	UM_{0-1} &= \frac{10 - 0}{1 - 0} = 10 \\
+	UM_{1-2} &= \frac{18 - 10}{2 - 1} = 8 \\
+	UM_{2-3} &= \frac{25 - 18}{3 - 2} = 7 \\
+	UM_{3-4} &= \frac{29 - 25}{4 - 3} = 4 \\
+	UM_{4-5} &= \frac{31 - 29}{5 - 4} = 2 \\
+	UM_{5-6} &= \frac{31 - 31}{6 - 5} = 0
+\end{align*}
+
+Luego, para determinar la \textit{unidad marginal por unidad monetaria}, se utiliza la fórmula:\\
+
+\[
+	\frac{UM}{P}
+\]
+
+Por lo que para el \emph{Khlav Kalash}, con un \emph{precio} de \$1.00, tenemos:
+
+\begin{align*}
+	\frac{UM_A}{P_A}0-1 &= \frac{15}{1} = 15 \\
+	\frac{UM_A}{P_A}1-2 &= \frac{8}{1} = 8 \\
+	\frac{UM_A}{P_A}2-3 &= \frac{7}{1} = 7 \\
+	\frac{UM_A}{P_A}3-4 &= \frac{4}{1} = 4 \\
+	\frac{UM_A}{P_A}4-5 &= \frac{2}{1} = 2 \\
+	\frac{UM_A}{P_A}5-6 &= \frac{1}{1} = 1 \\
+\end{align*}
+
+Y de manera similar para el \emph{Jugo de cangrejo}:
+
+\begin{align*}
+	\frac{UM_B}{P_B}0-1 &= \frac{10}{0.5} = 20 \\
+	\frac{UM_B}{P_B}1-2 &= \frac{8}{0.5} = 16 \\
+	\frac{UM_B}{P_B}2-3 &= \frac{7}{0.5} = 14 \\
+	\frac{UM_B}{P_B}3-4 &= \frac{4}{0.5} = 8 \\
+	\frac{UM_B}{P_B}4-5 &= \frac{2}{0.5} = 4 \\
+	\frac{UM_B}{P_B}5-6 &= \frac{0}{0.5} = 0 \\
+\end{align*}
+
+La información obtenida hasta el momento se presenta en la Tabla 1.
+
+\vspace{1cm}
+
+Para comprobar las combinaciones que pueden llegar a una combinación que maximice la utilidad de los bienes, se utiliza lo establecido por la \emph{Regla 2}:
+\[
+	\frac{UM_{BA}}{P_{BA}} = \frac{UM_{BB}}{P_{BB}}
+\]
+
+De donde, para 4 y 8 tenemos:
+
+\begin{align*}
+	\frac{8}{1} &= \frac{4}{0.5} \\
+	8 &= 8 \\ \\
+	\frac{4}{1} &= \frac{2}{0.5} \\
+	4 &= 4 \\ 
+\end{align*}
+
+
+Después, por la \emph{Regla 1} que establece
+
+\[
+	I = (P_{BA} \times Q_{BA})+(P_{BB} \times Q_{BB})
+\]
+
+tenemos que para $\frac{UM}{P} = 8$ en ambos bienes
+
+\[
+	I = \$4 = (2 \times 1)+(4 \times 0.5) = 2 + 8 = 10
+\]
+
+y para $\frac{UM}{P} = 4$ en ambos bienes
+
+\[
+	I = \$4 = (4 \times 1)+(5 \times 0.5) = 4 + 2.5 = 6.25
+\]
+
+que no cumplen con lo establecido por la \emph{Regla 1}.
+
+\vspace{1cm}
+
+
+Por lo tanto, para contestar a:\\
+
+
+\begin{enumerate}[label=\alph*)]
+
+\item 
+	\begin{enumerate}[label=\arabic*.]
+	\item Para gastar todo el ingreso disponible, deberá comprar sólo 4 unidades de \emph{Khlav Kalash} o sólo 6 unidades de \emph{Jugo de cangrejo}, debido a la restricción en los valores de utilidad total disponibles para el bien \emph{B}.
+	\item De lo anterior, cuando la utilidad marginal por unidad monetaria gastada en ambos bienes es igual, el gasto es mayor al ingreso disponible. De aumentar el ingreso, es probable que se alcance una combinación que cumpla con lo establecido en la \emph{Regla 1}.
+	\end{enumerate}
+
+\item Ver Figura 1 para \emph{Khlav Kalash} y Figura 2 para \emph{Jugo de cangrejo}.\par
+
+\end{enumerate}
+
+\vspace{1cm}
+
+
+\newpage
+
+\begin{table}[ht!]
+\begin{center}
+\begin{tabular}{| c | c  c  c | c  c  c|}
+	\hline
+		Q & $UT_A$ & $UM_A$ & $\frac{UM_A}{P_A}$ &  $UT_B$ & $UM_B$ & $\frac{UM_B}{P_B}$ \\ [0.5ex]
+	\hline
+	0 & 0 & - & - & 0 & - & - \\
+	1 & 15 & 15 & 15 & 10 & 10 & 20 \\
+	2 & 23 & 8 & 8 & 18 & 8 & 16 \\
+	3 & 30 & 7 & 7 & 25 & 7 & 14 \\
+	4 & 34 & 4 & 4 & 29 & 4 & 8 \\
+	5 & 36 & 2 & 2 & 31 & 2 & 4 \\
+	6 & 37 & 1 & 1 & 31 & 0 & 0 \\	\hline
+
+
+
+\end{tabular}
+\label{table:1}
+\caption{Valores de utilidad marginal por unidad monetaria}
+\end{center}
+\end{table}
+
+\begin{figure}[h!]
+	\centering
+	
+\begin{tikzpicture}
+
+\begin{axis} [
+	legend style={legend pos=outer north east},
+	width=12cm,	
+	grid=both,
+	ymin=0,
+	xmin=0, xmax=6,
+	xtick={1,...,6},
+	title=Utilidad total y marginal,
+	ylabel=Unidades de utilidad total (UUT) y Unidades de utilidad marginal (UUM),
+	xlabel=Khlav Kalash,
+]
+
+\addplot [color=blue] coordinates {
+			(0,0)
+			(1,15)
+			(2,23)
+			(3,30)
+			(4,34)
+			(5,36)
+			(6,37)
+
+};
+\addlegendentry{Utilidad total}
+
+\addplot [color=red] coordinates {
+			(.5,15)
+			(1.5,8)
+			(2.5,7)
+			(3.5,4)
+			(4.5,2)
+			(5.5,1)
+
+};
+\addlegendentry{Utilidad marginal}
+
+\end{axis}
+\end{tikzpicture}
+\caption{Utilidad total y marginal del bien \emph{A}}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	
+\begin{tikzpicture}
+
+\begin{axis} [
+	legend style={legend pos=outer north east},
+	width=12cm,	
+	grid=both,
+	ymin=0,
+	xmin=0, xmax=6,
+	xtick={1,...,6},
+	title=Utilidad total y marginal,
+	ylabel=Unidades de utilidad total (UUT) y Unidades de utilidad marginal (UUM),
+	xlabel=Jugo de cangrejo,
+]
+
+\addplot [color=orange] coordinates {
+			(0,0)
+			(1,10)
+			(2,18)
+			(3,25)
+			(4,29)
+			(5,31)
+			(6,31)
+
+};
+\addlegendentry{Utilidad total}
+
+\addplot [color=green] coordinates {
+			(.5,20)
+			(1.5,16)
+			(2.5,14)
+			(3.5,8)
+			(4.5,4)
+			(5.5,0)
+
+};
+\addlegendentry{Utilidad marginal}
+
+\end{axis}
+\end{tikzpicture}
+\caption{Utilidad total y marginal del bien \emph{B}}
+\end{figure}
+
+\vspace{10cm}
+A continuación se anexa el ejercicio realizado en clase:
+
+\end{document}

@@ -1,0 +1,11 @@
+# Para archivos generados por LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+
+# Para los archivos generados por el compilador de C
+*.o
+*.out
+*.exe

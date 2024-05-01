@@ -1,0 +1,199 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage[document]{ragged2e}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla]{babel}
+\renewcommand{\shorthandsspanish}{}
+\usepackage{xurl}
+\usepackage{lipsum}
+\usepackage{mwe}
+\usepackage{multicol}
+\usepackage{siunitx}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{algpseudocode}
+\usepackage{amsmath}
+
+\usepackage{listings}
+
+\begin{document}
+
+\vspace{2cm}
+
+\Huge{Algoritmo de multiplicación de Karatsuba}
+
+\vspace{1cm}
+
+\large{Presenta: González Cárdenas Ángel Aquilez}
+
+\vspace{1cm}
+
+\section{Introducción}
+
+Partiendo de la conjetura que Andrey Kolmogorov realiza en 1960 durante su seminario en la Universidad Estatal de Moscú, donde establece que el método tradicional de multiplicar dos números (ambos de \textit{n}-dígitos) requeriría una cantidad de operaciones elementales proporcional a $n^2$, o $\mathcal{O}(n^2)$, es donde Anatoly Alexeyevich Karatsuba (de 23 años), encuentra un algoritmo que multiplica dos números de \textit{n}-dígitos con $\mathcal{O}(n^\log_2{3})$ operaciones elementales.\par
+
+\section{Algoritmo}
+
+\subsection{Secuencial}
+
+\vspace{1cm}
+
+\begin{algorithm}
+\caption{Algoritmo de Karatsuba}
+\begin{algorithmic}[1]
+
+\Procedure{KARATSUBA}{X,Y} \Comment $X,Y:$ números de $n$-dígitos
+	\State $X = x_1 B^m + x_0$
+	\State $Y = y_1 B^m + y_0$
+	\State $XY = (x_1 B^m + x_0)(y_1 B^m+y_0)$
+
+\end{algorithmic}
+\end{algorithm}
+
+\vspace{1cm}
+
+Haciendo
+
+\begin{align*}
+XY &= x_1 y_1 B^2m + (x_1 y_0 + x_0 y_1)B^m + x_0 y_0 \\
+&= z_2 B^2m + z_1 B^m + z_0
+\end{align*}
+
+donde 
+
+\begin{align*}
+ 	z_2 &= x_1 y_1,\\
+ 	z_1 &= x_1 y_0 + x_0 y_1, \\
+  	z_0 &= x_0 y_0
+\end{align*}
+
+Karatsuba observó que el producto de $X$ con $Y$ se puede expresar en sólo tres multiplicaciones haciendo
+
+\begin{align*}
+ 	z_1 &= x_1 y_0 + x_0 y_1, \\
+	&= x_1 y_0 + x_0 y_1 + x_1 y_1 - x_1 y_1 + x_0 y_0 - x_0 y_0 \\
+	&= x_1 y_0 + x_0 y_0 + x_0 y_1 + x_1 y_1 - x_1 y_1 - x_0 y_0 \\
+	&= (x_1 + x_0) y_0 + (x_0 + x_1) y_1 -x_1 y_1 - x_0 y_0\\
+ &= 	(x_1 + x_0)(y_1 + y_0) - x_1 y_1 - x_0 y_0\\
+	&= (x_1 + x_0)(y_1 + y_0) - z_2 - z_0.
+\end{align*}
+
+\subsection*{Ejemplo}
+\vspace{1cm}
+
+Con 12345 y 6789, tenemos a $B = 10$, $m = 3$. De $B^m = 10^3 = 1000$, se tiene
+
+\begin{align*}
+	12345 &= 12 \times 1000 + 345\\
+	6789 &= 6 \times 1000 + 789
+\end{align*}
+
+Luego, tenemos que
+
+\begin{align*}
+ 	z_2 &= 12 \times 6 = 72\\
+ 	z_0 &= 345 \times 789 = 272205\\
+  	z_1 &= (12 + 345) \times (6 + 789) - z_1 - z_0\\
+  	&= 357 \times 795 - 72 - 272205\\
+  	&= 283815 -72 -272205\\
+  	&= 11538
+\end{align*}
+
+Como $m$ decrece conforme se agregan los resultados parciales descompuestos, el ejemplo anterior puede expresarse de forma que
+
+\begin{align*}
+	XY &= z_2 (B^m)^2 + z_1 (B^m)^1 + z_0\\
+	XY &= 72 \times 1000^2 + 11538 \times 1000 + 272205\\
+	&= 83810205
+\end{align*}
+
+\subsection{Recursivo}
+\vspace{1cm}
+
+Sean $X, Y$ dos números de $n$-dígitos, siendo $n$ un múltiplo de 2.
+
+\vspace{.5cm}
+
+\begin{algorithm}
+\caption{Algoritmo de Karatsuba (recursivo)}
+\begin{algorithmic}[1]
+
+\Procedure{KARATSUBA}{X,Y}
+	\If {$n = 1$} \State \textbf{return} $P = XY$
+		\Else
+			\State \textbf{split} $X, Y$ in half:
+			\State $X = 10^\frac{n}{2} x_1 + x_2$
+			\State $Y = 10^\frac{n}{2} y_1 + y_2$
+			\State $U = KARATSUBA (x_1, y_1)$
+			\State $V = KARATSUBA (x_2, y_2)$
+			\State $W = KARATSUBA (x_1 - x_2, y_1 - y_2)$
+			\State $Z = U + V - W$
+			\State $P = 10^n  U + 10^\frac{n}{2} Z + V$
+			\State \textbf{return} $P$
+\end{algorithmic}
+\end{algorithm}
+\vspace{.5cm}
+Y de la fórmula $a \times T(\frac{n}{c}) + b$, donde\\
+\vspace{.5cm}
+ a = cantidad de llamadas al caso recursivo,\\
+ c = cómo decrece la cardinalidad del problema, \\
+ b = sobrecarga (complejidad de lineas adicionales)
+\vspace{.5cm}
+se tiene
+\[
+	T(n) = 3T(\frac{n}{2}) + \mathcal{O}(n)
+\]
+\vspace{.5cm}
+Como $\mathcal{O}(n)$ no determina el crecimiento del algoritmo, puede expresarse que la complejidad del algoritmo de Karatsuba en su forma recursiva es de 
+\[
+	T(n) = \mathcal{O}(n^{\log_2{3}}) = \mathcal{O}(n^{1.58})
+\]
+
+Sea $M(n)$ el número de multiplicaciones de un solo dígito que se necesitan para el algoritmo con 2 números de $n$-dígitos.\\
+Hasta la línea 10, se producen tres llamadas recursivas, por lo tanto:
+\[M(n) = 3M(\frac{n}{2})\]
+Reemplazando $\frac{n}{2}$ en $M(n)$, se tiene 
+\[M(\frac{n}{2}) = 3M(\frac{n}{4})\]
+entonces 
+\[M(n) = 9M(\frac{n}{4})\]
+Continuando de manera similar, se tiene
+\[M(n) = 27M(\frac{n}{8})\]
+Por inducción se tiene que para cada $i (i<= k)$,
+\[
+	M(n) = 3^i M(\frac{n}{2^i})
+\]
+Haciendo $i=k$,
+\begin{align*}
+ M(n) &= 3^k M(\frac{n}{2^k})\\
+ &= 3^k M(1)\\
+ &= 3^k\\
+\end{align*}
+Luego como $k = \log_2{n}$, entonces
+
+\begin{align*}
+	\log_2{M(n)} = k,\\
+	M(n) &= 2^{\log_2{M(n)}} \\
+	&= 2^{k\log_2{3}} \\
+	&= (2^k)^{\log_2{3}}\\
+	&= n^{\log_2{3}}
+\end{align*}
+
+\section{Referencias}
+
+\begin{itemize}
+
+\item Babai, L. Divide and Conquer: The Karatsuba–Ofman algorithm. Retrieved May 30, 2016, recuperado de \\ http://people.cs.uchicago.edu/~laci/HANDOUTS/karatsuba.pdf
+
+\item Roughgarden, T. (2017). Algorithms illuminated (part 1): The basics. Soundlikeyourself Publishing.
+
+\item Wikipedia contributors. (2023, enero 31). Karatsuba algorithm. Wikipedia, The Free Encyclopedia, Recuperado de:\\ https://en.wikipedia.org/w/index.php?title=Karatsuba\_algorithm \\ &oldid=1136568213
+
+\end{itemize}
+ 
+\end{document}
