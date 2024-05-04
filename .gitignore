@@ -4,6 +4,9 @@
 *.out
 *.toc
 *.synctex.gz
+*.fls
+*.fdb_latexmk
+
 
 # Para los archivos generados por el compilador de C
 *.o
