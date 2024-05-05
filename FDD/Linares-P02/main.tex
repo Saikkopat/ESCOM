@@ -1,0 +1,90 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{enumitem}
+\usepackage[document]{ragged2e}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage{xurl}
+\usepackage{mwe}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{siunitx}
+\usepackage{listings}
+\usepackage{circuitikz}
+\usepackage{tabularray}
+\usepackage{amsmath}
+\usepackage{gensymb}
+\usepackage[none]{hyphenat}
+\usepackage{fancyhdr}
+\usepackage{sectsty}
+\usepackage{tabularx}
+\usepackage{float}
+
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\thesection}{\Roman{section}}
+
+\setcounter{table}{1}
+
+\pgfplotsset{compat=1.18}
+
+\usetikzlibrary{arrows.meta,bending}
+\usetikzlibrary{positioning}
+
+% Ajustes de tamaño de fuente
+\renewcommand{\thesection}{\Roman{section}} % TÍTULOS DE SECCIÓN 10 pts 
+\sectionfont{\normalsize\fontsize{10}{12}\selectfont\bfseries} % TÍTULOS DE SECCIÓN 10 pts
+\subsectionfont{\normalsize\fontsize{10}{12}\selectfont\itshape} % Subtítulos 10 pts itálica
+
+
+% Set the page style to "fancy"...
+\pagestyle{fancy}
+
+\fancyhf{} % clear existing header/footer entries
+% Define the height of the header
+\setlength{\headheight}{15.1pt}
+\fancyhead[R]{FUNDAMENTOS DE DISEÑO DIGITAL}
+\fancyhead[L]{PRÁCTICA NO. 2}
+\fancyfoot[L]{Ciudad de México, 17 de mayo de 2024}
+\fancyfoot[C]{\thepage}
+\fancyfoot[R]{
+    \begin{tikzpicture}[overlay, remember picture]
+    \path (current page.south ) ++(0.05,-12.5) node[below left] {\includegraphics[width=0.14\textwidth]{EscudoESCOM}};
+\end{tikzpicture}
+}
+
+\begin{document}
+
+\begin{center}
+\vspace{2cm}
+    {\textsc{\Huge Creación y Desarrollo de una ALU}\par}
+    \vspace{0.5cm}
+    {\large
+        Autores:\par
+    Arantza Elizabeth Arroyo Juárez, \textit{espinobricardo@gmail.com}\par
+    Espino Barreto Ricardo, \textit{espinobricardo@gmail.com}\par
+    García Zúñiga Andrés, \textit{andygarciazu10@gmail.com}\par
+    González Cárdenas Ángel Aquilez, \textit{maskemaneac@gmail.com}\par
+    Palacios Pérez Julio César, \textit{jcpp32304@gmail.com}\par
+    Pérez Olivares José Julio, \textit{jp.joseolivar.es@gmail.com}\par
+    }
+
+\vspace{.5cm}
+
+{\footnotesize Departamento de ingeniería en sistemas computacionales, ESCOM IPN\par}
+
+\vspace{.5cm}
+    
+\end{center}
+
+\begin{multicols}{2}
+
+\end{multicols}
+
+\end{document}
+
